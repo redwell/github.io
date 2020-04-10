@@ -27,8 +27,10 @@ function initiate(){
 function play(mybuffer){
   var sourceNode = context.createBufferSource();
   sourceNode.buffer = mybuffer;
+  sourceNode.loop = true;
   sourceNode.connect(context.destination);
   sourceNode.start(0);
+  sourceNode.stop(context.currentTime + 3);
 }
 
 

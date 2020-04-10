@@ -31,4 +31,4 @@ function play(mybuffer){
   sourceNode.start(0);
 }
 
-window.getElementById("init").addEventListener("click",initiate);
+document.getElementById("init").addEventListener("click",initiate);

@@ -12,7 +12,7 @@ function initiate(){
   var url = "./gunshot.m4a";
   var request = new XMLHttpRequest();
   request.responseType = "arraybuffer";
-  reqest.addEventListener("load",()=>{
+  request.addEventListener("load",()=>{
     if(request.status == 200){
       context.decodeAudioData(request.response, (buffer)=>{
         mybuffer = buffer;

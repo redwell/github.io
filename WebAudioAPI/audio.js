@@ -30,7 +30,7 @@ function play(mybuffer){
   sourceNode.loop = true;
   sourceNode.connect(context.destination);
   sourceNode.start(0);
-  sourceNode.stop(context.currentTime + 3);
+  sourceNode.stop(context.currentTime + 10); 
 }
 
 

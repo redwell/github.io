@@ -33,7 +33,5 @@ function play(mybuffer){
 
 
 document.addEventListener("DOMContentLoaded",()=>{
-  document.getElementById("init").addEventListener("click",()=>{
-    initiate();
-  });
+  document.getElementById("init").addEventListener("click",initiate);
 },false)

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Watson Assitant入門</title>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+  <h1>Watson Assistant入門</h1>
+  <div>
+    <h2>Watson Assitantとは</h2>
+    <p>
+      <a href="https://www.ibm.com/watson/jp-ja/developercloud/conversation.html" target="_blank">公式ページの説明</a>によると<br />
+      「Watson Assistant はチャットボット等、ユーザーとコンピューターが自然言語で対話可能なアプリケーションを簡単に開発するためのサービスです。」
+      ということです。
+    </p>
+    <p>
+      では、Watson Assitantを使ってチャットボットを作ってみたいと思います。
+    </p>
+  </div>
+
+  <div>
+    <h2>目次</h2>
+    <ul>
+      <li><a href="#step1">IBM Cloudライトアカウントの登録からWatson Assistantの有効化まで</a></li>
+      <li><a href="#step2">AssistanとSkillを作成しよう</a></li>
+      <li><a href="#step3">このあとの進め方</a></li>
+    </ul>
+
+<hr />
+  <h2><a id="step1">IBM Cloudライトアカウントの登録からWatson Assistantの有効化まで</a></h2>
+  <div>
+    <h3>IBM Cloudライトアカウントの作成</h3>
+    <p>
+      今回はチャットボットをお試しで作るというコンセプトなので、無料枠で試したいと思います。</p>
+    <p>
+      <a href="https://www.ibm.com/jp-ja/cloud/lite-account" target="_blank">IBM Cloudライトアカウントのページ</a>から、
+      アカウントを新規作成してください。
+    </p>
+    <p>
+      アカウント作成が完了したらログインしてください。ダッシュボードが開いたらログイン完了です。
+    </p>
+  </div>
+
+  <div>
+    <h3>Watson Assitantサービスを有効化しよう</h3>
+    <p>
+      IBM CloudはAWSやAzureと同様に様々なサービスを提供しているクラウドサービスです。<br />
+      サードパーティー製サービスを含めて、177のサービスが提供されています。（2020年4月7日現在）
+    </p>
+
+    <p>
+      今回はWatson Assistantがテーマなので、Watson Assistantサービスを有効化してみましょう。
+    </p>
+
+    <div>
+      <p>
+        まずはダッシュボードから「リソースの作成」をクリックします。
+      </p>
+      <p>
+        <img src="./img/create_resouces.png" width="70%" height="70%"/>
+      </p>
+    </div>
+
+    <div>
+      <p>
+        遷移先のカタログ一覧のページで「Assistant」と検索し、表示されたWatson Assistantの項目をクリックします。
+      </p>
+      <p>
+        <img src="./img/search_assistant.png" width="70%" height="70%"/>
+      </p>
+    </div>
+
+    <div>
+      <p>
+        Watson Assistantの申し込みページに遷移するので、まずは地域を選択します。<br />
+        Watson Assistantは無料枠でも東京リージョンが使えるので、今回は東京を選択します。
+      </p>
+      <p>
+        <img src="./img/select_tokyo.png" width="70%" height="70%"/>
+      </p>
+    </div>
+
+    <div>
+      <p>
+        続いて料金プランの選択に移ります。<br />
+        ライトプランが選ばれていることを確認します。<br />
+        問題なければ作成をクリックしてAssistantサービスを有効化します。<br />
+        ※ライトプランで作成した場合は利用にいくつか制限があります。<br />
+        　特に「非アクティブで 30 日経過すると削除」は忘れがちなので検証する際は注意です。
+      </p>
+      <p>
+        <img src="./img/deploy_assistant.png" width="70%" height="70%"/>
+      </p>
+    </div>
+
+    <div>
+      <p>
+        無事にWatson Assistantの有効化が完了すると、リソース管理画面に遷移します。<br />
+        「Watson Assistantの起動」をクリックして、Watson Assistantの管理画面に遷移します。
+      </p>
+      <p>
+        <img src="./img/launch_assistant.png" width="70%" height="70%"/>
+      </p>
+    </div>
+
+<hr />
+  <h2><a id="step2">AssistanとSkillを作成しよう</a></h2>
+    <div>
+      <p>
+        それでは手始めに簡単な対話を作ってみましょう。<br />
+        Watson Assistantの管理画面で「Create Assistant」をクリックします。
+      </p>
+      <p>
+        <img src="./img/create_assistant.png" width="70%" height="70%"/>
+      </p>
+    </div>
+
+    <div>
+      <p>
+        Create Assistantの画面が開くので、Assistantの名前を入力して「Create Assitant」をクリックします。
+      </p>
+      <p>
+        <img src="./img/create_assistant2.png" width="70%" height="70%"/>
+      </p>
+    </div>
+
+    <div>
+      <p>
+        これで「チュートリアル」という名前のAssistantが作成されました。<br />
+      </p>
+
+      <p>
+        ここから先の作業を進める前に用語解説です。<br />
+        Watson AssistantではAssistantとSkillという概念があります。<br />
+        Assistantはユーザーと対話するロボットの名前で、Skillは「カスタマーサポート」「天気予報」など具体的な能力を指します。<br />
+        他のチャットボットでも同様ですが、1つのチャットボットに複数領域の知識を詰め込むことは可能ですが、<br />
+        管理上の問題や認識精度への影響があるため、領域ごとにチャットボットを分ける方がすっきりすると考えられています。<br />
+        　※作り込みの難易度やコスト面の問題もあるため、現実には1つのチャットボットに詰め込まれるケースも多いですが・・・。<br /><br />
+        Watsonでは現在はAssistantとSkillは1対1ですが、将来的には1つのAssistantに複数のSkillをつけることが可能になると思われます。
+      </p>
+    </div>
+
+    <div>
+      <p>
+        それではSkillを作成します。<br />
+        まずは「Add dialog skill」をクリックします。
+      </p>
+      <p>
+        <img src="./img/add_dialog_skill.png" width="70%" height="70%"/>
+      </p>
+    </div>
+
+    <div>
+      <p>
+        <p>
+          スキル選択画面に遷移します。<br />
+          「Add existing skill」ですでに作成済みのスキルを選択可能ですが、<br />
+          今回はスキルを新規作成したいので「Create skill」を選びます。<br />
+        </p>
+        <p>
+          スキル名を入力し、言語設定をJapaneseにしたら、「Create dialog skill」をクリックです。
+        </p>
+
+      <p>
+        <img src="./img/add_dialog_skill2.png" width="70%" height="70%"/>
+      </p>
+    </div>
+
+<hr />
+  <h2><a id="step3">このあとの進め方</a></h2>
+    <div>
+      <p>
+        以上でチャットボットを構築するための環境作りができました。<br />
+        具体的な構築の入門として、まずは以下の記事を参考に進めてください。<br />
+        <ul>
+          <li><a href="https://qiita.com/riversun/items/c0ea4115d14e85d32474" target="_blank">Watson Assistant(旧 Conversation)で行こう ①入門編 対話アプリの考え方、意図理解とは何か？（必須、アカウント登録は上記でやってるので飛ばす）</a></li>
+          <li><a href="https://qiita.com/riversun/items/c7d4b002ea8f55e5a537" target="_blank">Watson Assistant(旧 Conversation)で行こう ②ホテル予約 チャットボットを作る（必須）</a></li>
+          <li><a href="https://qiita.com/riversun/items/53cd59e1405d7c77f32c" target="_blank">Watson Assistant(旧 Conversation)で行こう ③コンテキスト(Context)を活用した、ホテル予約チャットボット（難しいけどチャレンジしてみよう）</a></li>
+        </div>
+
+</body>
+</html>

@@ -23,6 +23,7 @@ function initiate(){
       context.decodeAudioData(request.response, (buffer)=>{
         mybuffer = buffer;
         button.disabled = false;
+        button2.disabled = false;
       });
     }
   },false);

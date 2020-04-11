@@ -2,38 +2,49 @@ var context;
 
 function initiate(){
   var mybuffer;
+
   var button = document.getElementById("button");
   button.addEventListener("click",()=>{
     play(mybuffer);
   },false)
+
   var button2 = document.getElementById("button2");
   button2.addEventListener("click",()=>{
     play2(mybuffer);
   },false)
 
-
-
   context = new AudioContext();
 
-  var url = "./gunshot.m4a";
-  var request = new XMLHttpRequest();
-  request.responseType = "arraybuffer";
-  request.addEventListener("load",()=>{
-    if(request.status == 200){
-      context.decodeAudioData(request.response, (buffer)=>{
-        mybuffer = buffer;
-        button.disabled = false;
-        button2.disabled = false;
-      });
+  loadbuffers("./gunshot.m4a",0);
+  loadbuffers("./garage.m4a",1);
+
+  var control = function(){
+    if(mybuffers.length >= 2){
+      button.disabled = false;
+    } else {
+      setTimeout(control,200);
     }
-  },false);
-  request.open("GET",url,true);
-  request.send();
+  };
+  control();
 }
+
+  function loadbuffers(url,id){
+    var request = new XMLHttpRequest();
+    request.responseType = "arraybuffer";
+    request.addEventListener("load",()=>{
+      if(request.status == 200){
+        context.decodeAudioData(request.response,(buffer)=>{
+          mybuffers[id] = buffer;
+        });
+      }
+    });
+    request.ope("GET",url,true);
+    request.send();
+  }
 
 function play(mybuffer){
   var sourceNode = context.createBufferSource();
-  sourceNode.buffer = mybuffer;
+  sourceNode.buffer = mybuffer[0];
 
   var volumeNode = context.createGain();
   volumeNode.gain.value = 0.2;
@@ -45,16 +56,14 @@ function play(mybuffer){
 
 function play2(mybuffer){
   var sourceNode = context.createBufferSource();
-  sourceNode.buffer = mybuffer;
+  sourceNode.buffer = mybuffer[0];
 
-  var compressorNode = context.createDynamicsCompressor();
-  compressorNode.threshold.value = -50;
-  compressorNode.ratio.value = 10;
+  var convolverNode = context.createConvolver();
+  convolverNode.buffer = mybuffers[1]
 
-  sourceNode.connect(compressorNode);
-  compressorNode.connect(context.destination);
+  sourceNode.connect(convolverNode);
+  convolverNode.connect(context.destination);
   sourceNode.start(0);
-
 }
 
 

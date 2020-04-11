@@ -52,7 +52,7 @@ function play2(mybuffer){
   compressorNode.ratio.value = 10;
 
   sourceNode.connect(compressorNode);
-  compressorNode.connext(context.destination);
+  compressorNode.connect(context.destination);
   sourceNode.start(0);
 
 }

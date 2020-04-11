@@ -61,8 +61,13 @@ function play2(){
   var convolverNode = context.createConvolver();
   convolverNode.buffer = mybuffers[1]
 
-  sourceNode.connect(convolverNode);
-  convolverNode.connect(context.destination);
+  var volumeNode = context.createGain();
+  volumeNode.gain.value = 0.2;
+
+  convolverNode.connect(volumeNode);
+
+  sourceNode.connect(volumeNode);
+  volumeNode.connect(context.destination);
   sourceNode.start(0);
 }
 

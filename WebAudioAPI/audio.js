@@ -49,7 +49,7 @@ function play2(mybuffer){
 
   var compressorNode = context.createDynamicsCompressor();
   compressorNode.threshold.value = -60;
-  compressorNode.ration.value = 10;
+  compressorNode.ratio.value = 10;
 
   sourceNode.connect(compressorNode);
   compressorNode.connext(context.destination);

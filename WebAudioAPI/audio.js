@@ -47,16 +47,11 @@ function play2(mybuffer){
   var sourceNode = context.createBufferSource();
   sourceNode.buffer = mybuffer;
 
-  var lowpassNode = context.createBiquadFilter();
-  lowpassNode.type = "lowpass";
-  lowpassNode.frequency.value = 1000;
-
   var compressorNode = context.createDynamicsCompressor();
-  compressorNode.threshold.value = -20;
-  compressorNode.ratio.value = 10;
+  compressorNode.threshold.value = -10;
+  compressorNode.ratio.value = 5;
 
-  sourceNode.connect(lowpassNode);
-  lowpassNode.connect(compressorNode);
+  sourceNode.connect(compressorNode);
   compressorNode.connect(context.destination);
   sourceNode.start(0);
 

@@ -45,7 +45,7 @@ function play2(mybuffer){
   var sourceNode = context.createBufferSource();
   sourceNode.buffer = mybuffer;
 
-  delayNode = contenxt.createDelay();
+  delayNode = context.createDelay();
   delayNode.delayTime.value = 1;
   sourceNode.connect(delayNode);
   delayNode.connect(context.destination);

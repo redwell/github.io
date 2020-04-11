@@ -43,7 +43,7 @@ function initiate(){
 
 function play(){
   var sourceNode = context.createBufferSource();
-  sourceNode.buffer = mybuffer[0];
+  sourceNode.buffer = mybuffers[0];
 
   var volumeNode = context.createGain();
   volumeNode.gain.value = 0.2;
@@ -55,7 +55,7 @@ function play(){
 
 function play2(){
   var sourceNode = context.createBufferSource();
-  sourceNode.buffer = mybuffer[0];
+  sourceNode.buffer = mybuffers[0];
 
   var convolverNode = context.createConvolver();
   convolverNode.buffer = mybuffers[1]

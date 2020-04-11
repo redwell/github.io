@@ -20,6 +20,7 @@ function initiate(){
   var control = function(){
     if(mybuffers.length >= 2){
       button.disabled = false;
+      button2.disabled = false;
     } else {
       setTimeout(control,200);
     }

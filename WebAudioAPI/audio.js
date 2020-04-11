@@ -38,7 +38,7 @@ function initiate(){
         });
       }
     });
-    request.ope("GET",url,true);
+    request.open("GET",url,true);
     request.send();
   }
 

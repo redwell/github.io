@@ -44,10 +44,11 @@ function play(mybuffer){
 function play2(mybuffer){
   var sourceNode = context.createBufferSource();
   sourceNode.buffer = mybuffer;
-  var volumeNode = context.createGain();
-  volumeNode.gain.value = 1.0;
-  sourceNode.connect(volumeNode);
-  volumeNode.connect(context.destination);
+
+  delayNode = contenxt.createDelay();
+  delayNode.delayTime.value = 1;
+  sourceNode.connect(delayNode);
+  delayNode.connect(context.destination);
   sourceNode.start(0);
 }
 

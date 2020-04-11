@@ -34,8 +34,10 @@ function initiate(){
 function play(mybuffer){
   var sourceNode = context.createBufferSource();
   sourceNode.buffer = mybuffer;
+
   var volumeNode = context.createGain();
   volumeNode.gain.value = 0.2;
+
   sourceNode.connect(volumeNode);
   volumeNode.connect(context.destination);
   sourceNode.start(0);
@@ -45,10 +47,17 @@ function play2(mybuffer){
   var sourceNode = context.createBufferSource();
   sourceNode.buffer = mybuffer;
 
-  delayNode = context.createDelay();
-  delayNode.delayTime.value = 1;
+  var delayNode = context.createDelay();
+  delayNode.delayTime.value = 0.3;
+
+  var volumeNode.context.createGain();
+  volumeNode.gain.value = 0.2;
+
   sourceNode.connect(delayNode);
-  delayNode.connect(context.destination);
+  delayNode.connect(volumeNode);
+  volumeNode.connect(context.destination);
+
+  sourceNode.connect(context.destination);
   sourceNode.start(0);
 }
 

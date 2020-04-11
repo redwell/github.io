@@ -50,7 +50,7 @@ function play2(mybuffer){
   var delayNode = context.createDelay();
   delayNode.delayTime.value = 0.3;
 
-  var volumeNode.context.createGain();
+  var volumeNode = context.createGain();
   volumeNode.gain.value = 0.2;
 
   sourceNode.connect(delayNode);

@@ -1,16 +1,15 @@
 var context;
+var mybuffers = [];
 
 function initiate(){
-  var mybuffer;
-
   var button = document.getElementById("button");
   button.addEventListener("click",()=>{
-    play(mybuffer);
+    play();
   },false)
 
   var button2 = document.getElementById("button2");
   button2.addEventListener("click",()=>{
-    play2(mybuffer);
+    play2();
   },false)
 
   context = new AudioContext();
@@ -42,7 +41,7 @@ function initiate(){
     request.send();
   }
 
-function play(mybuffer){
+function play(){
   var sourceNode = context.createBufferSource();
   sourceNode.buffer = mybuffer[0];
 
@@ -54,7 +53,7 @@ function play(mybuffer){
   sourceNode.start(0);
 }
 
-function play2(mybuffer){
+function play2(){
   var sourceNode = context.createBufferSource();
   sourceNode.buffer = mybuffer[0];
 

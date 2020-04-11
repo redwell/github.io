@@ -47,17 +47,12 @@ function play2(mybuffer){
   var sourceNode = context.createBufferSource();
   sourceNode.buffer = mybuffer;
 
-  var delayNode = context.createDelay();
-  delayNode.delayTime.value = 0.3;
+  var filterNode = context.createBiquadFilter();
+  filterNode.type = "highpass";
+  filterNode.frequency.value = 1000;
 
-  var volumeNode = context.createGain();
-  volumeNode.gain.value = 0.2;
-
-  sourceNode.connect(delayNode);
-  delayNode.connect(volumeNode);
-  volumeNode.connect(context.destination);
-
-  sourceNode.connect(context.destination);
+  sourceNode.connect(filterNode);
+  filterNode.connect(context.destination);
   sourceNode.start(0);
 }
 

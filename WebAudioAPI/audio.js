@@ -49,11 +49,11 @@ function play2(mybuffer){
 
   var hightpassNode = context.createBiquadFilter();
   hightpassNode.type = "highpass";
-  hightpassNode.frequency.value = 100;
+  hightpassNode.frequency.value = 1000;
 
   var lowpassNode = context.createBiquadFilter();
   lowpassNode.type = "lowpass";
-  lowpassNode.frequency.value = 1000;
+  lowpassNode.frequency.value = 5000;
 
   sourceNode.connect(hightpassNode).connect(lowpassNode).connect(context.destination);
   sourceNode.start(0);

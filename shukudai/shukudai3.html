@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <title>宿題3</title>
+    <script src="shukudai3.js"></script>
+</head>
+
+<body>
+    <div>
+        以下の条件を満たすJavascriptのコードを書いてみよう。
+        <ul>
+            <li>
+                HTMLを読み込んだあと、ボタンに対してクリックイベントで発火するイベントリスナーを設定する。
+            </li>
+            <li>ボタンに設定したイベントリスナーの中に、以下の処理を書く<br />
+                <ol>
+                    <li><a href="https://jsonplaceholder.typicode.com/users/1">https://jsonplaceholder.typicode.com/users/1</a><sup>※1</sup>にアクセスしてJSONデータを取得する</li>
+                    <li>1で取得したJSONの要素にアクセスして、id・名前・メールアドレスを取得する。</li>
+                    <li>HTMLの内容を2で取得した内容に書き換えるコードを書く。</li>
+                </ol>
+            </li>
+        </ul>
+        ※１：テスト用にダミーのJSONを返してくれるAPIを提供しているサイト
+    </div>
+
+    <hr />
+
+    <div>
+        <button type="button" id="button1">押す</button>
+    </div>
+
+    <div id="result">
+        書き換え前だよ
+    </div>
+</body>
+</html>

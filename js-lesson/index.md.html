@@ -1,108 +1,178 @@
-      <!DOCTYPE html>
-      <html>
-        <head>
-            <meta charset="utf-8" />
-            <title>index</title>
-            <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(171, 178, 191); background-color: rgb(40, 44, 52); overflow: auto; }
-.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
-.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(255, 255, 255); }
-.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
-.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
-.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
-.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
-.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
-.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
-.markdown-preview:not([data-use-github-style]) strong { color: rgb(255, 255, 255); }
-.markdown-preview:not([data-use-github-style]) del { color: rgb(124, 135, 156); }
-.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(82, 139, 255); }
-.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
-.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
-.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
-.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(124, 135, 156); border-color: rgb(75, 83, 98); border-width: 4px; }
-.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top: 2px dashed rgb(75, 83, 98); background: none; }
-.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
-.markdown-preview:not([data-use-github-style]) th { color: rgb(255, 255, 255); }
-.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(75, 83, 98); }
-.markdown-preview:not([data-use-github-style]) code { color: rgb(255, 255, 255); background-color: rgb(58, 63, 75); }
-.markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(49, 54, 63); }
-.markdown-preview:not([data-use-github-style]) kbd { color: rgb(255, 255, 255); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(75, 83, 98) rgb(75, 83, 98) rgb(62, 68, 81); border-image: initial; background-color: rgb(58, 63, 75); }
-.markdown-preview[data-use-github-style] { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif; line-height: 1.6; overflow-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); overflow: scroll; }
-.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
-.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
-.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
-.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
-.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
-.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
-.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
-.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
-.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
-.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
-.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
-.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
-.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
-.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
-.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
-.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
-.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
-.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
-.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
-.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
-.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
-.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
-.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
-.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
-.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; }
-.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
-.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
-.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
-.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
-.markdown-preview[data-use-github-style] dl { padding: 0px; }
-.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
-.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
-.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left: 4px solid rgb(221, 221, 221); }
-.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
-.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
-.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
-.markdown-preview[data-use-github-style] table th { font-weight: bold; }
-.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
-.markdown-preview[data-use-github-style] table tr { background-color: rgb(255, 255, 255); border-top: 1px solid rgb(204, 204, 204); }
-.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
-.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
-.markdown-preview[data-use-github-style] .emoji { max-width: none; }
-.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
-.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
-.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
-.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
-.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
-.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
-.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
-.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
-.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
-.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
-.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
-.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
-.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
-.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
-.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; background-color: rgba(0, 0, 0, 0.04); border-radius: 3px; }
-.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
-.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
-.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
-.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; background: transparent; border: 0px; }
-.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
-.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border-radius: 3px; }
-.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
-.markdown-preview[data-use-github-style] pre { overflow-wrap: normal; }
-.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; overflow-wrap: normal; background-color: transparent; border: 0px; }
-.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
-.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; background-color: rgb(252, 252, 252); border-width: 1px; border-style: solid; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-image: initial; border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; }
-.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
-.markdown-preview[data-use-github-style] code { color: inherit; }
-.markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
-.markdown-preview pre.editor-colors { user-select: auto; }
-.scrollbars-visible-always .markdown-preview pre.editor-colors .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors .horizontal-scrollbar { visibility: hidden; }
-.scrollbars-visible-always .markdown-preview pre.editor-colors:hover .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover .horizontal-scrollbar { visibility: visible; }
-.markdown-preview .task-list-item input[type="checkbox"] { position: absolute; margin: 0.25em 0px 0px -1.4em; }
-.markdown-preview .task-list-item { list-style-type: none; }
+<!DOCTYPE html>
+<html data-markdown-preview-plus-context="html-export">
+  <head>
+    <meta charset="utf-8" />
+    <title>index.md</title>
+    <style>.emoji {
+  max-width: 1em !important;
+}
+del {
+  text-decoration: none;
+  position: relative;
+}
+del::after {
+  border-bottom: 1px solid black;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+ul.contains-task-list li.task-list-item {
+  position: relative;
+  list-style-type: none;
+}
+ul.contains-task-list li.task-list-item input.task-list-item-checkbox {
+  position: absolute;
+  transform: translateX(-100%);
+  width: 30px;
+}
+span.critic.comment {
+  position: relative;
+}
+span.critic.comment::before {
+  content: '\1f4ac';
+  position: initial;
+}
+span.critic.comment > span {
+  display: none;
+}
+span.critic.comment:hover > span {
+  display: initial;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid;
+  border-radius: 5px;
+  max-height: 4em;
+  overflow: auto;
+}
+span.critic.comment:focus > span {
+  display: initial;
+  text-decoration: underline;
+  position: initial;
+  top: auto;
+  left: auto;
+  border: initial;
+  border-radius: initial;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: transparent;
+}
+
+body {
+  padding: 2em;
+  font-size: 1.2em;
+  color: #abb2bf;
+  background-color: #282c34;
+  overflow: auto;
+}
+body > :first-child,
+body > div.update-preview > :first-child {
+  margin-top: 0;
+}
+body > p,
+body > div.update-preview > p {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+body > ul,
+body > div.update-preview > ul,
+body > ol,
+body > div.update-preview > ol {
+  margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #ffffff;
+}
+h1 {
+  font-size: 2.4em;
+  font-weight: 300;
+}
+h2 {
+  font-size: 1.8em;
+  font-weight: 400;
+}
+h3 {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+h4 {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+h5 {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+h6 {
+  font-size: 1em;
+  font-weight: 600;
+}
+strong {
+  color: #ffffff;
+}
+del {
+  color: #7c879c;
+}
+a,
+a code {
+  color: #528bff;
+}
+img {
+  max-width: 100%;
+}
+blockquote {
+  margin: 1.5em 0;
+  font-size: inherit;
+  color: #7c879c;
+  border-color: #4b5362;
+  border-width: 4px;
+}
+hr {
+  margin: 3em 0;
+  border-top: 2px dashed #4b5362;
+  background: none;
+}
+table {
+  margin: 1.5em 0;
+}
+th {
+  color: #ffffff;
+}
+th,
+td {
+  padding: 0.66em 1em;
+  border: 1px solid #4b5362;
+}
+code {
+  color: #ffffff;
+  background-color: #3a3f4b;
+}
+pre.editor-colors {
+  margin: 1.5em 0;
+  padding: 1em;
+  font-size: 0.92em;
+  border-radius: 3px;
+  background-color: #31363f;
+}
+kbd {
+  color: #ffffff;
+  border: 1px solid #4b5362;
+  border-bottom: 2px solid #3e4451;
+  background-color: #3a3f4b;
+}
+
 .bracket-matcher .region {
   border-bottom: 1px dotted lime;
   position: absolute;
@@ -580,34 +650,57 @@ pre.editor-colors .fold-marker:after {
 .syntax--source.syntax--python .syntax--variable.syntax--parameter {
   color: #d19a66;
 }
+
+/*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed and saved.
+ *
+ * Add your own CSS or Less to fully customize Atom.
+ * If you are unfamiliar with Less, you can read more about it here:
+ * http://lesscss.org
+ */
+/*
+ * Examples
+ * (To see them, uncomment and save)
+ */
 </style>
-        </head>
-        <body class='markdown-preview' data-use-github-style><h1 id="javascript入門">JavaScript入門</h1>
+
+  </head>
+  <body>
+    <h1>JavaScript入門</h1>
 <p>この入門で達成したい目標は以下です。</p>
 <ul>
 <li>コピペではなく、コードの意味を理解して自分で書く</li>
 <li>JavaScriptを使ってAPIに接続し、取得した情報を処理してWebページに反映するまでを最短距離で学ぶ。</li>
 </ul>
-<p>そのため、少し厳密さを欠いている部分があります。<br>また話題もかなり絞られています。<br>あらかじめご了承ください。</p>
-<h2 id="javascriptについて">JavaScriptについて</h2>
+<p>そのため、少し厳密さを欠いている部分があります。
+また話題もかなり絞られています。
+あらかじめご了承ください。</p>
+<h2>JavaScriptについて</h2>
 <p>JavaScriptはプログラミング言語です。</p>
 <p>HTMLの中に埋め込んでブラウザ上で動作させることができるだけでなく、最近ではPHPやJavaのようにサーバ側のプログラムとして利用することもできます。</p>
 <p>そんなJavaScriptについて、少し学んでみましょう。</p>
 <p>※この入門ではサーバ側のプログラムとしてのJavaScriptは置いといて、Webページを作る際に利用される視点で説明します。</p>
-<h2 id="htmlとcssとjavascript">HTMLとCSSとJavaScript</h2>
+<h2>HTMLとCSSとJavaScript</h2>
 <p>HTML/CSS/JavaScriptは、よくセットで語られます。理由はシンプルで、Webページを作る際に一緒に使うことがとても多いからです。</p>
 <p>HTML/CSS/JavaScriptは、それぞれ異なる役割を持っています。</p>
 <ul>
-<li>HTML<ul>
+<li>HTML
+<ul>
 <li>「ここは見出し」、「ここは本文」など文章の構造を定義します</li>
 </ul>
 </li>
-<li>CSS<ul>
+<li>CSS
+<ul>
 <li>タグの種類であったり、タグにつけたIDやクラス名を元に見た目を定義します</li>
 </ul>
 </li>
-<li>JavaScript<ul>
-<li>Webページで使う場合は以下のような使い方が多いです。<ul>
+<li>JavaScript
+<ul>
+<li>Webページで使う場合は以下のような使い方が多いです。
+<ul>
 <li>「ボタンを押したら表示を変える」のようなユーザーの操作に合わせて動きがあるWebページを作る</li>
 <li>ユーザーの情報を取得してサーバ側に送る（マーケティングツールなど）</li>
 </ul>
@@ -620,19 +713,21 @@ pre.editor-colors .fold-marker:after {
 <p>これが徹底されていないとダサいことがおきます。例えばbuttonタグの中でonclick属性を使ってJavaScriptの関数を呼ぶこともできますが、これはHTMLの中にJavaScriptが混ざっていてダサいです。どれくらいダサいかというと、JavaScript担当が関数名を変えたくなった時に、わざわざHTML担当に関数名の変更をお願いことになるというイケてなさです。</p>
 <p>またファイルと分けることで以下のような効果もあります。</p>
 <ul>
-<li>CSSをファイルとして切り出すと・・・<ul>
+<li>CSSをファイルとして切り出すと・・・
+<ul>
 <li>複数のWebページを作る際に、常に同じCSSファイルを参照することで同じデザインルールが適用されて統一感のあるWebページが作れる。</li>
 <li>常に同じCSSファイルを参照していれば、デザインの修正についてもCSSファイル1つだけ編集すれば終わる。</li>
 </ul>
 </li>
-<li>JavaScriptをファイルとして切り出すと・・・<ul>
+<li>JavaScriptをファイルとして切り出すと・・・
+<ul>
 <li>たくさんWebページを作る場合でも、定型的な処理についてはパーツとして流用が可能。</li>
 <li>複数の場所で使われている定型的な処理を編集する際も、1つのファイルを編集すれば終わる。</li>
 </ul>
 </li>
 </ul>
 <p>もちろん利用するプロダクトの性質によって完全に切り離すことが難しいケースもありますが、本質的な考え方として理解しておいてください。</p>
-<h2 id="そもそもプログラミング言語とは">そもそもプログラミング言語とは</h2>
+<h2>そもそもプログラミング言語とは</h2>
 <p>今回はJavaScriptを使ったプログラミング入門の記事になりますが、ではそもそもプログラミング言語ってなんでしょう？</p>
 <p>それを理解するために、まずはプログラムという言葉について理解しましょう。</p>
 <p>プログラムという言葉は以下のような意味があります。</p>
@@ -644,23 +739,24 @@ pre.editor-colors .fold-marker:after {
 <p>運動会のプログラムなんかが分かりやすく身近な例になります。誰がいつどこで何をするのかが書かれていて、上から順番に実行されていくと思います。</p>
 <p>コンピュータにおけるプログラムも基本的には同様です。コンピュータに行ってほしい処理の手順が書かれていて、基本的には上から順番に実行されていきます。要するにコンピュータに作業をお願いする時の手順書がプログラムになります。</p>
 <p>運動会のように人間が行うことの手順は人間の言葉（日本語や英語など）を使いますが、コンピュータが行う手順はコンピュータにわかる言葉で書きます。それが<strong>プログラミング言語</strong>です。</p>
-<h2 id="プログラミングにおける基礎用語">プログラミングにおける基礎用語</h2>
-<p>少なくとも以下の2つについては理解する必要があります。<br>具体的な内容はあとから出てきますので、今は説明を読んで「ふーん」と思っておいてください。</p>
+<h2>プログラミングにおける基礎用語</h2>
+<p>少なくとも以下の2つについては理解する必要があります。
+具体的な内容はあとから出てきますので、今は説明を読んで「ふーん」と思っておいてください。</p>
 <ul>
-<li>変数<ul>
+<li>変数
+<ul>
 <li>データを一時的に保存しておく場所。名前付きの箱のイメージ。</li>
 </ul>
 </li>
-<li>関数<ul>
+<li>関数
+<ul>
 <li>決まった手順の処理を行い、結果を返してくれるプログラムのまとまりのこと。</li>
-<li>関数にデータを渡すと、処理結果が返ってきます。この時に渡すデータのことを<strong>引数</strong>といい、返ってくる処理結果を<strong>戻り値</strong>といいます。<ul>
+<li>関数にデータを渡すと、処理結果が返ってきます。この時に渡すデータのことを<strong>引数</strong>といい、返ってくる処理結果を<strong>戻り値</strong>といいます。</li>
 <li>ExcelのSUM関数が分かりやすい例です。複数の数値を渡すと、足し算処理した結果が返ってきます。</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<h2 id="プログラミングにおける基本処理">プログラミングにおける基本処理</h2>
+<h2>プログラミングにおける基本処理</h2>
 <p>歴史的な経緯とかいろいろ取っ払って話をすると、プログラミングにおける基本処理は以下の3つだけです。</p>
 <ul>
 <li>順次処理</li>
@@ -670,6 +766,15 @@ pre.editor-colors .fold-marker:after {
 <p>これはJavaScriptだけでなく、PHPでもPythonでもVBAでもPowerShellでも同じです。したがって、この3つの処理を正しく理解できれば、いろいろなプログラミング言語で基本的な処理が書けるようになります。</p>
 <p>プログラミング言語ごとに得意・不得意や特徴的な機能はありますが、上記の基本処理3つが書けることが前提になっています。まずは基本処理を身につけましょう。</p>
 <p>今回はJavaScript入門なので、JavaScriptを使って基本処理についても学んでいきます。</p>
-<p>以下のような流れで説明する予定です。<br>1.ブラウザのConsole画面の使い方<br>2.変数の基本<br>3.順次処理<br>4.分岐処理<br>5.反復処理<br>6.関数<br>7.HTMLと組み合わせて使ってみよう</p>
-<p><a href="./index2.md.html">2.ブラウザのConsole画面の使い方</a></p></body>
-      </html>
+<p>以下のような流れで説明する予定です。
+1.ブラウザのConsole画面の使い方
+2.変数の基本
+3.順次処理
+4.分岐処理
+5.反復処理
+6.関数
+7.HTMLと組み合わせて使ってみよう</p>
+<p><a href="./index2.md.html">2.ブラウザのConsole画面の使い方</a></p>
+
+  </body>
+</html>

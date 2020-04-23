@@ -31,6 +31,7 @@ Console画面に下記のように入力してみてください。
 <img src="./img/my_first_js01.png" width="50%"/>
 
 
+
 Enterを押すと実行されます。
 赤枠で囲った「初めてのJavaScript」が実行結果です。
 console.log();は()の中身をそのままConsole画面に表示する関数です。

@@ -2,7 +2,7 @@
 <html data-markdown-preview-plus-context="html-export">
   <head>
     <meta charset="utf-8" />
-    <title>index.md</title>
+    <title>index2</title>
     <style>.emoji {
   max-width: 1em !important;
 }
@@ -669,112 +669,87 @@ pre.editor-colors .fold-marker:after {
 
   </head>
   <body>
-    <h1>JavaScript入門</h1>
-<p>この入門で達成したい目標は以下です。</p>
+    <h2>ブラウザのConsole画面の使い方</h2>
+<p>JavaScriptを触ってみようということで、お手軽にJavaScriptを書いて動かせるブラウザのConsole画面の説明からしたいと思います。</p>
+<p>JavaScriptを書いて動かしやすい環境なのでGoogle Chromeで説明します。</p>
+<h3>空白ページを開く</h3>
+<p>まずはChromeを開いて、アドレスバーに「about:blank」と入力してEnterを押します。<br>
+そうすると空白ページが出てきます。</p>
+<img src="img\about_blank.png" width="50%">
+<h3>デベロッパーツールを開く</h3>
+<p>次にF12を押します。そうすると右側に新しい画面が出てきます。<br>
+Chromeではこの画面を<strong>デベロッパーツール</strong>といいます。<br>
+デベロッパーは開発者という意味です。</p>
+<p>赤枠で囲ったConsoleというところが開かれていれば準備OKです。</p>
+<img src="img\dev_tool.png" width="50%">
+<h3>ConsoleにJavaScriptのコードを入力してみる</h3>
+<p>ConsoleでJavaScriptを実行する手順を確認しておきましょう。</p>
+<p>Console画面に下記のように入力してみてください。<br>
+自分で書いたコードの意味が理解できるようになるのも目標の1つなので、コピペではく手入力してください。</p>
+<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">console.log("初めてのJavaScript");</code></p>
+<img src="img\my_first_js01.png" width="50%">
+<p>Enterを押すと実行されます。<br>
+赤枠で囲った「初めてのJavaScript」が実行結果です。<br>
+console.log();は()の中身をそのままConsole画面に表示する関数です。<br>
+この後もいろいろな場面で利用しますので覚えておいてください。</p>
+<img src="img\my_first_js02.png" width="50%">
+<h3>四則演算してみる</h3>
+<p>Console画面の入力に慣れるために、四則演算してみましょう。</p>
+<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">4+1</code><br>
+<img src="img\calc01.png" width="50%"></p>
+<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">43-28</code><br>
+<img src="img\calc02.png" width="50%"></p>
+<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">12*31</code><br>
+<img src="img\calc03.png" width="50%"></p>
+<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">64/8</code><br>
+<img src="img\calc04.png" width="50%"></p>
+<h3>きれいに割り切れない数の割り算について</h3>
+<p>JavaScriptに限らず、プログラミングにおいてきれいに割り切れない数の割り算はとても重要なテーマです。</p>
+<p>特に割り算の余りの部分が重要で、余りの値を使って処理を作ることがよくあります。</p>
+<p>そこできれいに割り切れない数について見ていきます。</p>
+<h4>まずは普通に割る</h4>
+<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">6/4</code><br>
+<img src="img\calc05.png" width="50%"></p>
+<p>1.5と答えが出てきました。JavaScriptでは一般的な人間が想定しているような答えを返してくれるようです。</p>
+<p>余談ですがプログラミング言語の中には小数点までは自動計算してくれず、単に「1」と返すものもあります。</p>
+<p>ひとまずここではJavaScriptは少数点まで自動計算してくれることを確認しました。</p>
+<h3>余りだけを取り出したい</h3>
+<p>次に余りだけを取り出したい場合について見ていきます。</p>
+<p>プログラミング言語には四則演算だけでなく、余りを求める演算子も定義されています。</p>
+<p>JavaScriptでは余りを求める際は「%」を使います。</p>
+<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">6%4</code><br>
+<img src="img\calc08.png" width="50%"></p>
+<p>ちなみになぜ余りを求める演算子が生まれたのかですが、調べてみても分かりませんでした・・・おそらく単純によく使うからだと思われます。</p>
+<h4>商だけ取り出したい</h4>
+<p>では商だけを取り出したい場合は、どのようにすればいいでしょうか？</p>
+<p>JavaScriptに標準で準備されている機能の1つに、商だけを取り出すものがあります。<br>
+それを使ってみましょう。</p>
+<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">Math.floor(6/4)</code><br>
+<img src="img\calc06.png" width="50%"></p>
+<p>MathはMathematicsの略で数学という意味です。<br>
+Mathの中に数学に関する機能がたくさん詰まっています。</p>
+<p>数学に関する組み込み機能を使う場合は、Mathの後に.（ドット）を書いて、そのあとに機能名をつけて呼び出します。</p>
+<p>例えば以下のようなものがあります。</p>
 <ul>
-<li>コピペではなく、コードの意味を理解して自分で書く</li>
-<li>JavaScriptを使ってAPIに接続し、取得した情報を処理してWebページに反映するまでを最短距離で学ぶ。</li>
-</ul>
-<p>そのため、少し厳密さを欠いている部分があります。<br>
-また話題もかなり絞られています。<br>
-あらかじめご了承ください。</p>
-<h2>JavaScriptについて</h2>
-<p>JavaScriptはプログラミング言語です。</p>
-<p>HTMLの中に埋め込んでブラウザ上で動作させることができるだけでなく、最近ではPHPやJavaのようにサーバ側のプログラムとして利用することもできます。</p>
-<p>そんなJavaScriptについて、少し学んでみましょう。</p>
-<p>※この入門ではサーバ側のプログラムとしてのJavaScriptは置いといて、Webページを作る際に利用される視点で説明します。</p>
-<h2>HTMLとCSSとJavaScript</h2>
-<p>HTML/CSS/JavaScriptは、よくセットで語られます。理由はシンプルで、Webページを作る際に一緒に使うことがとても多いからです。</p>
-<p>HTML/CSS/JavaScriptは、それぞれ異なる役割を持っています。</p>
+<li>Math.floor(数値)
 <ul>
-<li>HTML
-<ul>
-<li>「ここは見出し」、「ここは本文」など文章の構造を定義します</li>
-</ul>
-</li>
-<li>CSS
-<ul>
-<li>タグの種類であったり、タグにつけたIDやクラス名を元に見た目を定義します</li>
-</ul>
-</li>
-<li>JavaScript
-<ul>
-<li>Webページで使う場合は以下のような使い方が多いです。
-<ul>
-<li>「ボタンを押したら表示を変える」のようなユーザーの操作に合わせて動きがあるWebページを作る</li>
-<li>ユーザーの情報を取得してサーバ側に送る（マーケティングツールなど）</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>説明だけ読むと当たり前に見えますが、めちゃめちゃ本質的で重要な部分です。</p>
-<p>この整理を突き詰めることで、HTML/CSS/JavaScriptそれぞれでファイルを分けられるようになり、文書構造を作る人、デザイナー、サイト上での動きを作る人がそれぞれの専門を活かして分業することが可能になります。</p>
-<p>これが徹底されていないとダサいことがおきます。例えばbuttonタグの中でonclick属性を使ってJavaScriptの関数を呼ぶこともできますが、これはHTMLの中にJavaScriptが混ざっていてダサいです。どれくらいダサいかというと、JavaScript担当が関数名を変えたくなった時に、わざわざHTML担当に関数名の変更をお願いことになるというイケてなさです。</p>
-<p>またファイルと分けることで以下のような効果もあります。</p>
-<ul>
-<li>CSSをファイルとして切り出すと・・・
-<ul>
-<li>複数のWebページを作る際に、常に同じCSSファイルを参照することで同じデザインルールが適用されて統一感のあるWebページが作れる。</li>
-<li>常に同じCSSファイルを参照していれば、デザインの修正についてもCSSファイル1つだけ編集すれば終わる。</li>
-</ul>
-</li>
-<li>JavaScriptをファイルとして切り出すと・・・
-<ul>
-<li>たくさんWebページを作る場合でも、定型的な処理についてはパーツとして流用が可能。</li>
-<li>複数の場所で使われている定型的な処理を編集する際も、1つのファイルを編集すれば終わる。</li>
-</ul>
-</li>
-</ul>
-<p>もちろん利用するプロダクトの性質によって完全に切り離すことが難しいケースもありますが、本質的な考え方として理解しておいてください。</p>
-<h2>そもそもプログラミング言語とは</h2>
-<p>今回はJavaScriptを使ったプログラミング入門の記事になりますが、ではそもそもプログラミング言語ってなんでしょう？</p>
-<p>それを理解するために、まずはプログラムという言葉について理解しましょう。</p>
-<p>プログラムという言葉は以下のような意味があります。</p>
-<ul>
-<li>物事を行う手順のもくろみ</li>
-<li>予定の計画表</li>
-<li>催し物の実行計画</li>
-</ul>
-<p>運動会のプログラムなんかが分かりやすく身近な例になります。誰がいつどこで何をするのかが書かれていて、上から順番に実行されていくと思います。</p>
-<p>コンピュータにおけるプログラムも基本的には同様です。コンピュータに行ってほしい処理の手順が書かれていて、基本的には上から順番に実行されていきます。要するにコンピュータに作業をお願いする時の手順書がプログラムになります。</p>
-<p>運動会のように人間が行うことの手順は人間の言葉（日本語や英語など）を使いますが、コンピュータが行う手順はコンピュータにわかる言葉で書きます。それが<strong>プログラミング言語</strong>です。</p>
-<h2>プログラミングにおける基礎用語</h2>
-<p>少なくとも以下の2つについては理解する必要があります。<br>
-具体的な内容はあとから出てきますので、今は説明を読んで「ふーん」と思っておいてください。</p>
-<ul>
-<li>変数
-<ul>
-<li>データを一時的に保存しておく場所。名前付きの箱のイメージ。</li>
+<li>切り捨て</li>
 </ul>
 </li>
-<li>関数
+<li>Math.ceil(数値)<br>
+-切り上げ</li>
+<li>Math.round(数値)<br>
+-四捨五入</li>
+<li>Math.random()
 <ul>
-<li>決まった手順の処理を行い、結果を返してくれるプログラムのまとまりのこと。</li>
-<li>関数にデータを渡すと、処理結果が返ってきます。この時に渡すデータのことを<strong>引数</strong>といい、返ってくる処理結果を<strong>戻り値</strong>といいます。</li>
-<li>ExcelのSUM関数が分かりやすい例です。複数の数値を渡すと、足し算処理した結果が返ってきます。</li>
+<li>0以上1未満のランダムな数値を返す（乱数）</li>
 </ul>
 </li>
 </ul>
-<h2>プログラミングにおける基本処理</h2>
-<p>歴史的な経緯とかいろいろ取っ払って話をすると、プログラミングにおける基本処理は以下の3つだけです。</p>
-<ul>
-<li>順次処理</li>
-<li>分岐処理</li>
-<li>反復処理</li>
-</ul>
-<p>これはJavaScriptだけでなく、PHPでもPythonでもVBAでもPowerShellでも同じです。したがって、この3つの処理を正しく理解できれば、いろいろなプログラミング言語で基本的な処理が書けるようになります。</p>
-<p>プログラミング言語ごとに得意・不得意や特徴的な機能はありますが、上記の基本処理3つが書けることが前提になっています。まずは基本処理を身につけましょう。</p>
-<p>今回はJavaScript入門なので、JavaScriptを使って基本処理についても学んでいきます。</p>
-<p>以下のような流れで説明する予定です。<br>
-1.ブラウザのConsole画面の使い方<br>
-2.変数の基本<br>
-3.順次処理<br>
-4.分岐処理<br>
-5.反復処理<br>
-6.関数<br>
-7.HTMLと組み合わせて使ってみよう</p>
-<p><a href="./index2.md.html">2.ブラウザのConsole画面の使い方</a></p>
+<img src="img\calc07.png" width="50%">
+<p>※ここでは紹介しませんが、機能は他にも<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Math">たくさんあります</a>。</p>
+<p><a href="./index.html">0.JavaScriptについて</a><br>
+<a href="./index3.html">2.変数の基本</a></p>
 
   </body>
 </html>

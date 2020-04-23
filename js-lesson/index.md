@@ -98,4 +98,4 @@ HTML/CSS/JavaScriptは、それぞれ異なる役割を持っています。
 6.関数
 7.HTMLと組み合わせて使ってみよう
 
-[1.ブラウザのConsole画面の使い方](./index2.html)
+[ブラウザのConsole画面の使い方 >](./index2.html)

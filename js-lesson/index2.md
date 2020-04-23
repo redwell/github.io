@@ -118,5 +118,4 @@ Mathの中に数学に関する機能がたくさん詰まっています。
 
 ※ここでは紹介しませんが、機能は他にも[たくさんあります](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Math)。
 
-[0.JavaScriptについて](./index.html)
-[2.変数の基本](./index3.html)
+[< JavaScriptについて](./index.html) | [変数の基本 >](./index3.html)

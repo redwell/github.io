@@ -40,6 +40,7 @@ console.log();は()の中身をそのままConsole画面に表示する関数で
 <img src="./img/my_first_js02.png" width="50%"/>
 
 
+
 ### 四則演算してみる
 Console画面の入力に慣れるために、四則演算してみましょう。
 
@@ -117,5 +118,18 @@ Mathの中に数学に関する機能がたくさん詰まっています。
 <img src="./img/calc07.png" width="50%"/>
 
 ※ここでは紹介しませんが、機能は他にも[たくさんあります](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Math)。
+
+
+
+### まとめ
+ここまででConsole画面にコードを入力して実行する流れが分かったと思います。
+
+ちなみにF5などを押すと画面が再読み込みされて、Console画面の中身もクリアされます。
+
+このあとの記事で数行程度のコードを書く予定ですが、データを消さずに保存しておきたい場合はメモ帳などに書いてからコピペすることをオススメします。
+
+
+
+
 
 [< JavaScriptについて](./index.html) | [変数の基本 >](./index3.html)

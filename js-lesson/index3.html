@@ -2,7 +2,7 @@
 <html data-markdown-preview-plus-context="html-export">
   <head>
     <meta charset="utf-8" />
-    <title>index2</title>
+    <title>index3</title>
     <style>.emoji {
   max-width: 1em !important;
 }
@@ -669,90 +669,93 @@ pre.editor-colors .fold-marker:after {
 
   </head>
   <body>
-    <h2>ブラウザのConsole画面の使い方</h2>
-<p>JavaScriptを触ってみようということで、お手軽にJavaScriptを書いて動かせるブラウザのConsole画面の説明からしたいと思います。</p>
-<p>JavaScriptを書いて動かしやすい環境なのでGoogle Chromeで説明します。</p>
-<h3>空白ページを開く</h3>
-<p>まずはChromeを開いて、アドレスバーに「about:blank」と入力してEnterを押します。<br>
-そうすると空白ページが出てきます。</p>
-<img src="img\about_blank.png" width="50%">
-<h3>デベロッパーツールを開く</h3>
-<p>次にF12を押します。そうすると右側に新しい画面が出てきます。<br>
-Chromeではこの画面を<strong>デベロッパーツール</strong>といいます。<br>
-デベロッパーは開発者という意味です。</p>
-<p>赤枠で囲ったConsoleというところが開かれていれば準備OKです。</p>
-<img src="img\dev_tool.png" width="50%">
-<h3>ConsoleにJavaScriptのコードを入力してみる</h3>
-<p>ConsoleでJavaScriptを実行する手順を確認しておきましょう。</p>
-<p>Console画面に下記のように入力してみてください。<br>
-自分で書いたコードの意味が理解できるようになるのも目標の1つなので、コピペではく手入力してください。</p>
-<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">console.log("初めてのJavaScript");</code></p>
-<img src="img\my_first_js01.png" width="50%">
-<p>Enterを押すと実行されます。<br>
-赤枠で囲った「初めてのJavaScript」が実行結果です。<br>
-console.log();は()の中身をそのままConsole画面に表示する関数です。<br>
-この後もいろいろな場面で利用しますので覚えておいてください。</p>
-<img src="img\my_first_js02.png" width="50%">
-<h3>四則演算してみる</h3>
-<p>Console画面の入力に慣れるために、四則演算してみましょう。</p>
-<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">4+1</code><br>
-<img src="img\calc01.png" width="50%"></p>
-<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">43-28</code><br>
-<img src="img\calc02.png" width="50%"></p>
-<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">12*31</code><br>
-<img src="img\calc03.png" width="50%"></p>
-<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">64/8</code><br>
-<img src="img\calc04.png" width="50%"></p>
-<h3>きれいに割り切れない数の割り算について</h3>
-<p>JavaScriptに限らず、プログラミングにおいてきれいに割り切れない数の割り算はとても重要なテーマです。</p>
-<p>特に割り算の余りの部分が重要で、余りの値を使って処理を作ることがよくあります。</p>
-<p>そこできれいに割り切れない数について見ていきます。</p>
-<h4>まずは普通に割る</h4>
-<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">6/4</code><br>
-<img src="img\calc05.png" width="50%"></p>
-<p>1.5と答えが出てきました。JavaScriptでは一般的な人間が想定しているような答えを返してくれるようです。</p>
-<p>余談ですがプログラミング言語の中には小数点までは自動計算してくれず、単に「1」と返すものもあります。</p>
-<p>ひとまずここではJavaScriptは少数点まで自動計算してくれることを確認しました。</p>
-<h3>余りだけを取り出したい</h3>
-<p>次に余りだけを取り出したい場合について見ていきます。</p>
-<p>プログラミング言語には四則演算だけでなく、余りを求める演算子も定義されています。</p>
-<p>JavaScriptでは余りを求める際は「%」を使います。</p>
-<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">6%4</code><br>
-<img src="img\calc08.png" width="50%"></p>
-<p>ちなみになぜ余りを求める演算子が生まれたのかですが、調べてみても分かりませんでした・・・おそらく単純によく使うからだと思われます。</p>
-<h4>商だけ取り出したい</h4>
-<p>では商だけを取り出したい場合は、どのようにすればいいでしょうか？</p>
-<p>JavaScriptに標準で準備されている機能の1つに、商だけを取り出すものがあります。<br>
-それを使ってみましょう。</p>
-<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">Math.floor(6/4)</code><br>
-<img src="img\calc06.png" width="50%"></p>
-<p>MathはMathematicsの略で数学という意味です。<br>
-Mathの中に数学に関する機能がたくさん詰まっています。</p>
-<p>数学に関する組み込み機能を使う場合は、Mathの後に.（ドット）を書いて、そのあとに機能名をつけて呼び出します。</p>
-<p>例えば以下のようなものがあります。</p>
+    <h2>変数の基本</h2>
+<p>プログラミングを行う上で避けては通れない変数について、基本を学びます。</p>
+<h3>変数とは</h3>
+<p>変数をひとことで表すと「一時的にデータを保存しておくための場所」です。</p>
+<p>すみません。たぶん言葉では伝わりにくいので、さっさとコードを書いて動きを見ながら進めましょう。</p>
+<h3>変数を使わない処理の例</h3>
+<p>例えば、営業部に2つのグループがあったとします。<br>
+各グループの昨年度売り上げは以下の通りです。</p>
 <ul>
-<li>Math.floor(数値)
+<li>営業1G：1,543,293,452円</li>
+<li>営業2G：1,834,533,554円</li>
+</ul>
+<p>では営業部の売り上げはいくらでしょう？<br>
+Console画面で計算してみましょう。</p>
+<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">1543293452+1834533554</code><br>
+<img src="img\var01.png" width="50%"></p>
+<p>見事に計算できました。</p>
+<p>では次に平均値を計算してみましょう。<br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">(1543293452+1834533554)/2</code><br>
+<img src="img\var02.png" width="50%"></p>
+<p>これも計算できましたね。</p>
+<p>ここで計算式を見直してみてください。<br>
+プログラムでこの売り上げ金額を扱う際に以下のような問題が出てきます。</p>
 <ul>
-<li>切り捨て</li>
+<li>あとから見返した時になんの計算をしていたのかが分からない</li>
+<li>っていうか、いまは2つしかデータがないからいいけど、データの数が増えるとどの数字がなんなのか分からなくなる</li>
+<li>数字が訂正になったら、すべての場所で数字を書き換えないといけない</li>
+<li>金額が登場する度に数字を見ながら打つのめんどい</li>
+<li>数字を見ながら何度も売っていると間違えそう</li>
 </ul>
-</li>
-<li>Math.ceil(数値)<br>
--切り上げ</li>
-<li>Math.round(数値)<br>
--四捨五入</li>
-<li>Math.random()
+<h3>変数を使った処理</h3>
+<p>そこで変数の出番です。<br>
+変数を使って同じ計算をやってみましょう。<br>
+まずは営業部の売り上げの計算です。</p>
+<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">let eigyo1g = 1543293452;</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">let eigyo2g = 1834533554;</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">let goukei = eigyo1g + eigyo2g;</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">console.log(goukei);</code><br>
+<img src="img\var03.png" width="50%"></p>
+<p>よくわかんないけど確かに計算結果として同じものが出ましたね。<br>
+では何をやっているのかを読み解いてみましょう。</p>
+<h3>変数を使った処理の解説</h3>
+<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">let eigyo1g = 1543293452;</code><br>
+「let eigyo1g」というところでeigyo1gという名前の変数を作っています。</p>
+<p>eigyo1gは私が勝手に決めました。<br>
+理由は営業1Gのデータを一時的に保存する場所として分かりやすい名前だからです。<br>
+あとから何が入っているのか分かるように名前を付けましょう。<br>
+いろいろなプログラミング言語で応用しやすいので、名前を付ける際は以下のルールをオススメします。</p>
 <ul>
-<li>0以上1未満のランダムな数値を返す（乱数）</li>
+<li>頭文字はアルファベットを使う</li>
+<li>2文字目以降は英数か_（アンダースコア）を使う</li>
+<li>誰が見ても分かるような名前がオススメ</li>
 </ul>
-</li>
-</ul>
-<img src="img\calc07.png" width="50%">
-<p>※ここでは紹介しませんが、機能は他にも<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Math">たくさんあります</a>。</p>
+<p>そのあとの「 = 1543293452」で変数に一時的に保存するデータとして1543293452を設定しています。</p>
+<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">let eigyo2g = 1834533554;</code><br>
+ここは営業1Gと同じ考え方ですね。営業2G分の変数を作って、売り上げデータを一時的に保存しています。</p>
+<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">let goukei = eigyo1g + eigyo2g;</code><br>
+合計値を格納したいので「let goukei」でgoukeiという名前の変数を作っています。<br>
+もちろん名前は私が勝手に決めているので、別の名前でも構いません。</p>
+<p>「= eigyo1g + eigyo2g」がポイントですね。<br>
+意味が分かるように変数名を付けているので、式を見れば営業1Gと営業2Gの売り上げを合計していることが分かります。</p>
+<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">console.log(goukei);</code><br>
+ここは前のページでも使ったconsle.log()ですね。<br>
+この一文でgoukeiの内容をConsole画面に表示しています。</p>
+<p>ポイントは内側の文字を""（ダブルクオーテーション）で囲っていないところです。</p>
+<p>ダブルクオーテーションで囲った場合、中身をそのまま表示します。</p>
+<p>ダブルクオーテーションで囲っていない場合は変数として扱います。</p>
+<p>比較のために2つのパターンを書いておきます。<br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">console.log(goukei);</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">console.log("goukei");</code><br>
+<img src="img\var04.png" width="50%"></p>
+<h3>変数の中身を入れ替える</h3>
+<p>あとで書く</p>
 <h3>まとめ</h3>
-<p>ここまででConsole画面にコードを入力して実行する流れが分かったと思います。</p>
-<p>ちなみにF5などを押すと画面が再読み込みされて、Console画面の中身もクリアされます。</p>
-<p>このあとの記事で数行程度のコードを書く予定ですが、データを消さずに保存しておきたい場合はメモ帳などに書いてからコピペすることをオススメします。</p>
-<p><a href="./index.html">&lt; JavaScriptについて</a> | <a href="./index3.html">変数の基本 &gt;</a></p>
+<ul>
+<li>「let 変数名」で変数を作る</li>
+<li>「変数名 = データの中身」で指定した変数に対して一時的にデータを保存できる</li>
+<li>変数を使うことで式が読みやすくなる。</li>
+</ul>
+<h3>備考</h3>
+<p>ちなみにプログラミング言語には変数の扱い方で種類があります。</p>
+<p>JavaScriptは動的型付け言語と言って、変数の扱いは良くも悪くも緩いです。（なので入門しやすいです。）</p>
+<p>対してVBA、C言語、Javaなどは静的型付け言語と呼ばれていて、変数を宣言する際に「この変数は数値を入れる用です」とか「この変数は文字列が入ります」などを指定する必要があります。</p>
+<p>それぞれメリット・デメリットがあるのでどちらが優れているというわけではなく、向き不向きがあるイメージです。</p>
+<p>もしこのJavaScript入門を終えて他の言語を学ぶ場合は、その言語が動的型付けなのか静的型付けなのかを確認してみてください。<br>
+そして動的型付けの場合は、ここで学んだ内容にプラスして型付けについて学ぶ必要があることを覚えておいてください。</p>
+<p><a href="./index2.html">&lt; ブラウザのConsole画面の使い方</a> | <a href="./index4.html">順次処理 &gt;</a></p>
 
   </body>
 </html>

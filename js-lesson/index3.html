@@ -741,7 +741,20 @@ Console画面で計算してみましょう。</p>
 <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">console.log("goukei");</code><br>
 <img src="img\var04.png" width="50%"></p>
 <h3>変数の中身を入れ替える</h3>
-<p>あとで書く</p>
+<p>変数の中身を入れ替えることも可能です。</p>
+<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">eigyo1g = 1543000000;</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">console.log(eigyo1g);</code><br>
+<img src="img\var05.png" width="50%"></p>
+<p>ここで1つ間違えやすいポイントをお話しします。<br>
+eigyo1gの中身を入れ替えましたが、この入れ替えによってgoukeiの中身は変わりません。<br>
+goukeiについては計算を行った時点での結果が入っているからです。</p>
+<p>実際に見てみましょう。<br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">console.log(goukei);</code><br>
+<img src="img\var06.png" width="50%"></p>
+<p>もしeigyo1gの数値を入れ替えた結果を反映させたいのであれば、同じ計算をもう一度行う必要があります。</p>
+<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">goukei = eigyo1g + eigyo2g;</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">console.log(goukei);</code><br>
+<img src="img\var07.png" width="50%"></p>
 <h3>まとめ</h3>
 <ul>
 <li>「let 変数名」で変数を作る</li>

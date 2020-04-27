@@ -90,7 +90,27 @@ eigyo1gは私が勝手に決めました。
 
 
 ### 変数の中身を入れ替える
-あとで書く
+変数の中身を入れ替えることも可能です。
+
+`eigyo1g = 1543000000;`
+`console.log(eigyo1g);`
+<img src="./img/var05.png" width="50%"/>
+
+
+ここで1つ間違えやすいポイントをお話しします。
+eigyo1gの中身を入れ替えましたが、この入れ替えによってgoukeiの中身は変わりません。
+goukeiについては計算を行った時点での結果が入っているからです。
+
+実際に見てみましょう。
+`console.log(goukei);`
+<img src="./img/var06.png" width="50%"/>
+
+もしeigyo1gの数値を入れ替えた結果を反映させたいのであれば、同じ計算をもう一度行う必要があります。
+
+`goukei = eigyo1g + eigyo2g;`
+`console.log(goukei);`
+<img src="./img/var07.png" width="50%"/>
+
 
 
 ### まとめ

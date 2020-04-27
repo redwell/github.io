@@ -748,6 +748,18 @@ Mathの中に数学に関する機能がたくさん詰まっています。</p>
 </ul>
 <img src="img\calc07.png" width="50%">
 <p>※ここでは紹介しませんが、機能は他にも<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Math">たくさんあります</a>。</p>
+<h3>その他の演算</h3>
+<p>数字同士の足し算は数字が足されますが、文字の足し算はどうなるか見ておきましょう。</p>
+<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">console.log("私は" + "JavaScriptを勉強中です。");</code><br>
+<img src="img\calc09.png" width="50%"></p>
+<p>文字列が連結されて表示されました。</p>
+<p>では文字列と数字の足し算はどうでしょう？</p>
+<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">console.log("私は永遠の" + 18 + "歳です。");</code><br>
+<img src="img\calc10.png" width="50%"></p>
+<p>文字列と数字が連結されて表示されました。<br>
+このようにJavaScriptでは足し算に文字列を含めると、全体が文字列として扱われます。</p>
+<p>このテクニックはよく使われます。<br>
+この後の学習でも出てくるので覚えておいてください。</p>
 <h3>まとめ</h3>
 <p>ここまででConsole画面にコードを入力して実行する流れが分かったと思います。</p>
 <p>ちなみにF5などを押すと画面が再読み込みされて、Console画面の中身もクリアされます。</p>

@@ -681,6 +681,35 @@ pre.editor-colors .fold-marker:after {
 びっくりですね。</p>
 <p>それでは、まずは順次処理から見ていきましょう。</p>
 <h3>順次処理とは</h3>
+<p>最初のページで、プログラムはコンピュータに作業をお願いする時の手順書で、基本的には上から順番に書かれていることを実行すると説明をしました。</p>
+<p>この上から順番に書かれていることを実行するという処理を<strong>順次処理</strong>といいます。</p>
+<h3>順次処理を体験しよう</h3>
+<p>変数のページで書いたコードが順次処理の流れだったのでそんなに説明いらないかもですが、念のため順次処理を体験してみましょう。</p>
+<p>Console画面へのコードの入れ方を今までと少し変えてみます。<br>
+次の4行をメモ帳に書いて、まとめてコピペして実行してみてください。</p>
+<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">let eigyo1g = 1500000;</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">let eigyo2g = 1350000;</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">console.log("営業1G：" + eigyo1g);</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">console.log("営業2G：" + eigyo2g);</code><br>
+<img src="img\seq01.png" width="50%"></p>
+<p>結果を見ると上から順番に実行されているのが分かると思います。</p>
+<h3>順次処理をもう少し見てみよう</h3>
+<p>次に4行目にeigyo2gを書き換えるコードを追加してみます。</p>
+<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">let eigyo1g = 1500000;</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">let eigyo2g = 1350000;</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">console.log("営業1G：" + eigyo1g);</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">eigyo2g = 1550000;</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">console.log("営業2G：" + eigyo2g);</code><br>
+<img src="img\seq01.png" width="50%"></p>
+<p>console.log()の結果を見ると、追加したコードによってeigyo2gの内容が書き換えられているのが分かります。</p>
+<p>順番通りに処理されているイメージが湧いたでしょうか。</p>
+<h3>まとめ</h3>
+<p>プログラムを上から順番に実行するのが順次処理でした。</p>
+<p>特に難しいことを言ってないですが、実はこの考え方をきちんと理解できているかが非常に重要です。</p>
+<p>今回はJavaScriptで説明をしていますが、他のプログラミング言語だけでなくHTMLやCSSも上から順番に読み込むという動作は同じです。</p>
+<p>この入門でもどこかで取り上げる予定ですが、HTMLとJavaScriptを組み合わせて使う際に、プログラムの内容は正しいが、読み込む順番が正しくないせいで動かないという失敗がよくあります。</p>
+<p>順次処理は当たり前だけど奥が深いので、プログラムを書く場合は常に意識するようにしてください。</p>
+<p><a href="./index3.html">&lt; 変数の基本</a> | <a href="./index5.html">分岐処理 &gt;</a></p>
 
   </body>
 </html>

@@ -16,13 +16,17 @@
 では営業部の売り上げはいくらでしょう？
 Console画面で計算してみましょう。
 
-`1543293452+1834533554`
+```
+1543293452+1834533554
+```
 <img src="./img/var01.png" width="50%"/>
 
 見事に計算できました。
 
 では次に平均値を計算してみましょう。
-`(1543293452+1834533554)/2`
+```
+(1543293452+1834533554)/2
+```
 <img src="./img/var02.png" width="50%"/>
 
 これも計算できましたね。
@@ -40,17 +44,21 @@ Console画面で計算してみましょう。
 変数を使って同じ計算をやってみましょう。
 まずは営業部の売り上げの計算です。
 
-`let eigyo1g = 1543293452;`
-`let eigyo2g = 1834533554;`
-`let goukei = eigyo1g + eigyo2g;`
-`console.log(goukei);`
+```
+let eigyo1g = 1543293452;
+let eigyo2g = 1834533554;
+let goukei = eigyo1g + eigyo2g;
+console.log(goukei);
+```
 <img src="./img/var03.png" width="50%"/>
 
 よくわかんないけど確かに計算結果として同じものが出ましたね。
 では何をやっているのかを読み解いてみましょう。
 
 ### 変数を使った処理の解説
-`let eigyo1g = 1543293452;`
+```
+let eigyo1g = 1543293452;
+```
 「let eigyo1g」というところでeigyo1gという名前の変数を作っています。
 
 eigyo1gは私が勝手に決めました。
@@ -63,17 +71,23 @@ eigyo1gは私が勝手に決めました。
 
 そのあとの「 = 1543293452」で変数に一時的に保存するデータとして1543293452を設定しています。
 
-`let eigyo2g = 1834533554;`
+```
+let eigyo2g = 1834533554;
+```
 ここは営業1Gと同じ考え方ですね。営業2G分の変数を作って、売り上げデータを一時的に保存しています。
 
-`let goukei = eigyo1g + eigyo2g;`
+```
+let goukei = eigyo1g + eigyo2g;
+```
 合計値を格納したいので「let goukei」でgoukeiという名前の変数を作っています。
 もちろん名前は私が勝手に決めているので、別の名前でも構いません。
 
 「= eigyo1g + eigyo2g」がポイントですね。
 意味が分かるように変数名を付けているので、式を見れば営業1Gと営業2Gの売り上げを合計していることが分かります。
 
-`console.log(goukei);`
+```
+console.log(goukei);
+```
 ここは前のページでも使ったconsle.log()ですね。
 この一文でgoukeiの内容をConsole画面に表示しています。
 
@@ -84,16 +98,20 @@ eigyo1gは私が勝手に決めました。
 ダブルクオーテーションで囲っていない場合は変数として扱います。
 
 比較のために2つのパターンを書いておきます。
-`console.log(goukei);`
-`console.log("goukei");`
+```
+console.log(goukei);
+console.log("goukei");
+```
 <img src="./img/var04.png" width="50%"/>
 
 
 ### 変数の中身を入れ替える
 変数の中身を入れ替えることも可能です。
 
-`eigyo1g = 1543000000;`
-`console.log(eigyo1g);`
+```
+eigyo1g = 1543000000;
+console.log(eigyo1g);
+```
 <img src="./img/var05.png" width="50%"/>
 
 
@@ -102,13 +120,17 @@ eigyo1gの中身を入れ替えましたが、この入れ替えによってgouk
 goukeiについては計算を行った時点での結果が入っているからです。
 
 実際に見てみましょう。
-`console.log(goukei);`
+```
+console.log(goukei);
+```
 <img src="./img/var06.png" width="50%"/>
 
 もしeigyo1gの数値を入れ替えた結果を反映させたいのであれば、同じ計算をもう一度行う必要があります。
 
-`goukei = eigyo1g + eigyo2g;`
-`console.log(goukei);`
+```
+goukei = eigyo1g + eigyo2g;
+console.log(goukei);
+```
 <img src="./img/var07.png" width="50%"/>
 
 

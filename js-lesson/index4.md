@@ -23,10 +23,12 @@
 Console画面へのコードの入れ方を今までと少し変えてみます。
 次の4行をメモ帳に書いて、まとめてコピペして実行してみてください。
 
-`let eigyo1g = 1500000;`
-`let eigyo2g = 1350000;`
-`console.log("営業1G：" + eigyo1g);`
-`console.log("営業2G：" + eigyo2g);`
+```
+let eigyo1g = 1500000;
+let eigyo2g = 1350000;
+console.log("営業1G：" + eigyo1g);
+console.log("営業2G：" + eigyo2g);
+```
 <img src="./img/seq01.png" width="50%"/>
 
 結果を見ると上から順番に実行されているのが分かると思います。
@@ -37,11 +39,13 @@ Console画面へのコードの入れ方を今までと少し変えてみます�
 
 F5などでページをクリアしてから、以下の5行をメモ帳に書いてまとめてコピペしてください。
 
-`let eigyo1g = 1500000;`
-`let eigyo2g = 1350000;`
-`console.log("営業1G：" + eigyo1g);`
-`eigyo2g = 1550000;`
-`console.log("営業2G：" + eigyo2g);`
+```
+let eigyo1g = 1500000;
+let eigyo2g = 1350000;
+console.log("営業1G：" + eigyo1g);
+eigyo2g = 1550000;
+console.log("営業2G：" + eigyo2g);
+```
 <img src="./img/seq01.png" width="50%"/>
 
 console.log()の結果を見ると、追加したコードによってeigyo2gの内容が書き換えられているのが分かります。

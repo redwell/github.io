@@ -670,7 +670,35 @@ pre.editor-colors .fold-marker:after {
   </head>
   <body>
     <h2>分岐処理</h2>
-<p>これから書く</p>
+<p>おさらいですが、プログラミングにおける基本処理は以下の3つです。</p>
+<ul>
+<li>順次処理</li>
+<li>分岐処理</li>
+<li>反復処理</li>
+</ul>
+<p>次は2つ目の分岐処理について見ていきます。</p>
+<h3>分岐処理とは</h3>
+<p>プログラムは基本的には上から下に書かれた順に順次処理を行っていきます。<br>
+しかし、順次処理だけだと条件に合わせた処理を書くことができません。</p>
+<p>例えば通販サイトの料金計算プログラムがあったとして、<br>
+非会員の場合は定価での販売、会員の場合は合計額から3%オフといった処理をしたい場合に<br>
+順次処理では相手に合わせて料金を出し分けることができません。</p>
+<p>このように条件に合わせて処理の内容を変えたい場合に、<br>
+分岐処理を使います。</p>
+<h3>分岐処理を体験しよう</h3>
+<p>文法の説明は後にして、まずは分岐処理を体験してみましょう。</p>
+<p>上の通販サイトの例で、非会員が商品を2つ（10000円と4500円）を買った場合でサンプルコードを書いてみたいと思います。</p>
+<p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">let item1 = 10000;</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">let itme2 = 4500;</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">let sum = item1 + item2;</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">let status = "非会員;"</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">if(status == "会員"){</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">  console.log(status + "の方は" + sum * (1-0.03) + "円です。");</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">} else if(status == "非会員"){</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">  console.log(status + "の方は" + sum + "円です。");</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">}else{ </code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">  console.log("statusには「会員」か「非会員」と入れてください。");</code><br>
+<code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">}</code></p>
 <p><a href="./index4.html">&lt; 順次処理</a> | <a href="./index6.html">反復処理 &gt;</a></p>
 
   </body>

@@ -25,14 +25,17 @@
 上の通販サイトの例で、非会員が商品を2つ（10000円と4500円）を買った場合でサンプルコードを書いてみたいと思います。
 
 ```
+//変数に値を設定する部分
 let item1 = 10000;
 let item2 = 4500;
 let sum = item1 + item2;
 let status = "非会員";
+
+//分岐処理の部分
 if(status == "会員"){
-console.log(status + "の方は" + sum * (1-0.03) + "円です。");
+  console.log(status + "の方は" + sum * (1-0.03) + "円です。");
 } else if(status == "非会員"){
-console.log(status + "の方は" + sum + "円です。");
+  console.log(status + "の方は" + sum + "円です。");
 }else{
   console.log("statusには「会員」か「非会員」と入れてください。");
 }

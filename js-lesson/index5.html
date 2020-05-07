@@ -688,14 +688,17 @@ pre.editor-colors .fold-marker:after {
 <h3>分岐処理を体験しよう</h3>
 <p>文法の説明は後にして、まずは分岐処理を体験してみましょう。</p>
 <p>上の通販サイトの例で、非会員が商品を2つ（10000円と4500円）を買った場合でサンプルコードを書いてみたいと思います。</p>
-<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let item1 = 10000;</span></span></span>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//変数に値を設定する部分</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let item1 = 10000;</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let item2 = 4500;</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let sum = item1 + item2;</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let status = "非会員";</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//分岐処理の部分</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">if(status == "会員"){</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log(status + "の方は" + sum * (1-0.03) + "円です。");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log(status + "の方は" + sum * (1-0.03) + "円です。");</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">} else if(status == "非会員"){</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log(status + "の方は" + sum + "円です。");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log(status + "の方は" + sum + "円です。");</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else{</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("statusには「会員」か「非会員」と入れてください。");</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>

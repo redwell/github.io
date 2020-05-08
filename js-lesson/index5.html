@@ -694,19 +694,79 @@ pre.editor-colors .fold-marker:after {
 <h3>分岐処理を体験しよう</h3>
 <p>文法の説明は後にして、まずは分岐処理を体験してみましょう。</p>
 <p>上の通販サイトの例で、非会員が商品を2つ（10000円と4500円）を買った場合でサンプルコードを書いてみたいと思います。</p>
+<p>意味が分からなくてもちゃんと手打ちしてくださいね。<br>
+手打ちすることであとから内容が入ってきやすくなります。</p>
 <pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//変数に値を設定する部分</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let item1 = 10000;</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let item2 = 4500;</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let sum = item1 + item2;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let goukei = item1 + item2;</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let status = "非会員";</span></span></span>
 <span></span> 
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//分岐処理の部分</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">if(status == "会員"){</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log(status + "の方は" + sum * (1-0.03) + "円です。");</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">} else if(status == "非会員"){</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log(status + "の方は" + sum + "円です。");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">if(status === "会員"){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log(status + "の方は" + goukei * (1-0.03) + "円です。");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else if(status === "非会員"){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log(status + "の方は" + goukei + "円です。");</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else{</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("statusには「会員」か「非会員」と入れてください。");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<img src="img\branch01.png" width="50%">
+<p>よくわからないですが、宣言通り非会員が商品を2つ買った時の料金が出てきたと思います。</p>
+<p>非会員だけの処理を見ても本当に分岐処理になっているのか分からないと思うので、statusを会員に変更して分岐処理を実行してみましょう。</p>
+<p>さきほどの画面に続けて入力することで、statusを入れ替えて処理を実行します。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//statusの中身を入れ替える</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">status = "会員";</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//分岐処理の部分（さっきと同じ）</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">if(status === "会員"){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log(status + "の方は" + goukei * (1-0.03) + "円です。");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else if(status === "非会員"){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log(status + "の方は" + goukei + "円です。");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("statusには「会員」か「非会員」と入れてください。");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">};</span></span></span></pre>
+<img src="img\branch01.png" width="50%">
+<p>statusを会員に変更したことで、分岐処理の結果に会員の料金（合計金額から3%オフ）が表示されました。</p>
+<p>条件によって処理の内容を変えられていることが確認できましたね。</p>
+<h3>分岐処理の解説</h3>
+<p>では処理の中身について解説していきます。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//変数に値を設定する部分</span></span></span></pre>
+<p>まず最初に日本語で説明のようなものが書かれています。<br>
+これはコメントと呼ばれるもので、プログラム内に説明文をつける機能です。<br>
+JavaScriptの場合は「//」と書くとその後ろがコメント扱いになります。<br>
+「//」の後ろはプログラムとしては処理されないので、文末の「;」は必要ありません。</p>
+<p>プログラミングの世界では「3日経てば自分も他人」のような言い方があります。<br>
+自分が書いたプログラムであっても、3日も経つと初めて見るプログラムみたいに読めなくなるんですよ・・・。</p>
+<p>他人とプログラムを共有する際に必要というだけでなく、未来の自分のためにも、どういう処理を行っているパートなのかが分かるようにコメントを残しておくことがおススメです。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let item1 = 10000;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let item2 = 4500;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let goukei = item1 + item2;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let status = "非会員";</span></span></span></pre>
+<p>続いて変数に値を設定する処理です。<br>
+この部分は今までのページで解説した内容なので、みなさんならもう読み解けると思います。</p>
+<p>商品2つに価格を設定する処理がitem1とitem2のところです。<br>
+goukeiはitem1とitem2の価格を足して合計金額を計算する処理です。</p>
+<p>そして最後にstatusとして非会員を設定しています。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//分岐処理の部分</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">if(status === "会員"){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log(status + "の方は" + goukei * (1-0.03) + "円です。");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else if(status === "非会員"){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log(status + "の方は" + goukei + "円です。");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("statusには「会員」か「非会員」と入れてください。");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<p>続いて分岐処理のところを見ていきましょう。</p>
+<p>最初にコメントで処理の内容を説明しています。</p>
+<p>次に始めている構文がでてきます。<br>
+if文と呼ばれる処理です。</p>
+<p>文法の説明の前に、ここで書かれている内容を日本語に訳してみます。</p>
+<p>※今回は先にプログラムを書いてから日本語に訳しましたが、実際に自分でプログラムを書く際は日本語で処理の内容をまとめてからJavaScriptに翻訳していくのがおススメです。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">もし会員ステータスが会員だったら{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">コンソール画面に「会員の方は〇〇〇円（合計の3%引きの金額）です」と表示する。</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}もし会員ステータスが非会員だったら{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">コンソール画面に「会員の方は×××円（割引なしの金額）です」と表示する。<span class="trailing-whitespace">  </span></span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}それ以外の場合は{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">コンソール画面に「statusは会員か非会員を入れるように警告を出す</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
 <p><a href="./index4.html">&lt; 順次処理</a> | <a href="./index6.html">反復処理 &gt;</a></p>
 

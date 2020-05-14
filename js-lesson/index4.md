@@ -46,7 +46,7 @@ console.log("営業1G：" + eigyo1g);
 eigyo2g = 1550000;
 console.log("営業2G：" + eigyo2g);
 ```
-<img src="./img/seq01.png" width="50%"/>
+<img src="./img/seq02.png" width="50%"/>
 
 console.log()の結果を見ると、追加したコードによってeigyo2gの内容が書き換えられているのが分かります。
 

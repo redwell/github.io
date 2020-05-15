@@ -728,6 +728,17 @@ pre.editor-colors .fold-marker:after {
 <img src="img\branch01.png" width="50%">
 <p>statusを会員に変更したことで、分岐処理の結果に会員の料金（合計金額から3%オフ）が表示されました。</p>
 <p>条件によって処理の内容を変えられていることが確認できましたね。</p>
+<h3>分岐処理の内容をまずは日本語で整理する</h3>
+<p>文法の説明の前に、ここで書かれている内容を日本語に訳してみます。</p>
+<p>今回は先にプログラムを書いてから日本語に訳しましたが、実際に自分でプログラムを書く際は日本語で処理の内容をまとめてからJavaScriptに翻訳していくのがおススメです。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">もし会員ステータスが会員だったら{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">コンソール画面に「会員の方は〇〇〇円（合計の3%引きの金額）です」と表示する。</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}もし会員ステータスが非会員だったら{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">コンソール画面に「会員の方は×××円（割引なしの金額）です」と表示する。<span class="trailing-whitespace">  </span></span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}それ以外の場合は{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">コンソール画面に「statusは会員か非会員を入れるように警告を出す</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<p>この日本語で書かれたロジックを元にコードを見ていきましょう。</p>
 <h3>分岐処理の解説</h3>
 <p>では処理の中身について解説していきます。</p>
 <pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//変数に値を設定する部分</span></span></span></pre>
@@ -759,15 +770,53 @@ goukeiはitem1とitem2の価格を足して合計金額を計算する処理で�
 <p>最初にコメントで処理の内容を説明しています。</p>
 <p>次に始めている構文がでてきます。<br>
 if文と呼ばれる処理です。</p>
-<p>文法の説明の前に、ここで書かれている内容を日本語に訳してみます。</p>
-<p>※今回は先にプログラムを書いてから日本語に訳しましたが、実際に自分でプログラムを書く際は日本語で処理の内容をまとめてからJavaScriptに翻訳していくのがおススメです。</p>
-<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">もし会員ステータスが会員だったら{</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">コンソール画面に「会員の方は〇〇〇円（合計の3%引きの金額）です」と表示する。</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}もし会員ステータスが非会員だったら{</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">コンソール画面に「会員の方は×××円（割引なしの金額）です」と表示する。<span class="trailing-whitespace">  </span></span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}それ以外の場合は{</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">コンソール画面に「statusは会員か非会員を入れるように警告を出す</span></span></span>
+<p>まずは基本的なif文の書き方を説明します。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">【日本語】</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">条件Aの場合はAの処理をする。</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">それ以外の場合はBの処理をする。</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">【JavaScript】</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">if(条件A){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">Aの処理</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">Bの処理</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<p>条件の書き方もいろいろあるので、代表的な以下の条件を見ていきましょう。</p>
+<ul>
+<li>完全に一致</li>
+<li>より大きい</li>
+<li>以上</li>
+<li>以下</li>
+<li>未満</li>
+</ul>
+<h4>完全に一致のパターン</h4>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">【日本語】</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 変数joukenに格納された値が***7と完全に一致する場合***はコンソールに「ラッキーセブン！」と表示</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 7以外の場合は「残念！！」と表示</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">【JavaScript】</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let jouken = 7;</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">if(jouken === 7){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("ラッキーセブン！");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("残念！！");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<h4>より大きいパターン</h4>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">【日本語】</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 変数joukenに格納された値が***7よりも大きい場合***はコンソールに「ビッグ！」と表示</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- それ以外の場合は「スモール・・・」と表示</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let jouken = 7;</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">if(jouken &gt; 7){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("ビッグ！");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("スモール・・・");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<h4>以上のパターン</h4>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"></span></span> 
+<span></span> </pre>
 <p><a href="./index4.html">&lt; 順次処理</a> | <a href="./index6.html">反復処理 &gt;</a></p>
 
   </body>

@@ -771,17 +771,16 @@ goukeiはitem1とitem2の価格を足して合計金額を計算する処理で�
 <p>次に始めている構文がでてきます。<br>
 if文と呼ばれる処理です。</p>
 <p>まずは基本的なif文の書き方を説明します。</p>
-<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">【日本語】</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">条件Aの場合はAの処理をする。</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">それ以外の場合はBの処理をする。</span></span></span>
-<span></span> 
-<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">【JavaScript】</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">if(条件A){</span></span></span>
+<p>【日本語】</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">条件Aの場合はAの処理をする。</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">それ以外の場合はBの処理をする。</span></span></span></pre>
+<p>【JavaScript】</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">if(条件A){</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">Aの処理</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else{</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">Bの処理</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
-<p>条件の書き方もいろいろあるので、代表的な以下の条件を見ていきましょう。</p>
+<p>かっこの中の条件の書き方についてですが、いろいろあるので代表的な以下の条件を見ていきましょう。</p>
 <ul>
 <li>完全に一致</li>
 <li>より大きい</li>
@@ -790,12 +789,11 @@ if文と呼ばれる処理です。</p>
 <li>未満</li>
 </ul>
 <h4>完全に一致のパターン</h4>
-<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">【日本語】</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 変数joukenに格納された値が***7と完全に一致する場合***はコンソールに「ラッキーセブン！」と表示</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 7以外の場合は「残念！！」と表示</span></span></span>
-<span></span> 
-<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">【JavaScript】</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let jouken = 7;</span></span></span>
+<p>【日本語】</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 変数joukenに格納された値が***7と完全に一致する場合***はコンソールに「ラッキーセブン！」と表示</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 7以外の場合は「残念！！」と表示</span></span></span></pre>
+<p>【JavaScript】</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let jouken = 7;</span></span></span>
 <span></span> 
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">if(jouken === 7){</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("ラッキーセブン！");</span></span></span>
@@ -803,11 +801,11 @@ if文と呼ばれる処理です。</p>
 <span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("残念！！");</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
 <h4>より大きいパターン</h4>
-<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">【日本語】</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 変数joukenに格納された値が***7よりも大きい場合***はコンソールに「ビッグ！」と表示</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- それ以外の場合は「スモール・・・」と表示</span></span></span>
-<span></span> 
-<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let jouken = 7;</span></span></span>
+<p>【日本語】</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 変数joukenに格納された値が***7よりも大きい場合***はコンソールに「ビッグ！」と表示</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- それ以外の場合は「スモール・・・」と表示</span></span></span></pre>
+<p>【JavaScript】</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let jouken = 7;</span></span></span>
 <span></span> 
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">if(jouken &gt; 7){</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("ビッグ！");</span></span></span>
@@ -815,8 +813,10 @@ if文と呼ばれる処理です。</p>
 <span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("スモール・・・");</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
 <h4>以上のパターン</h4>
-<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"></span></span> 
-<span></span> </pre>
+<p>【日本語】</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"></span></span> </pre>
+<p>【JavaScript】</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"></span></span> </pre>
 <p><a href="./index4.html">&lt; 順次処理</a> | <a href="./index6.html">反復処理 &gt;</a></p>
 
   </body>

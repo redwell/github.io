@@ -665,12 +665,115 @@ pre.editor-colors .fold-marker:after {
  * Examples
  * (To see them, uncomment and save)
  */
+.syntax--paragraph {
+  background-color: #ffffff;
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 20px;
+}
 </style>
 
   </head>
   <body>
     <h2>反復処理</h2>
-<p>これから書く</p>
+<p>続いて反復処理についてです。<br>
+反復処理を身に着けるとプログラミングの可能性が一気に開けます。<br>
+超重要です。</p>
+<h3>反復処理とは</h3>
+<p>決められた条件の範囲内で処理を繰り返すことを反復処理といいます。<br>
+よくいうループというのは反復処理のことを指しています。</p>
+<p>今回の入門で扱う範囲を超えますが、実用的な例でいうとCSVのデータを1行ずつ読み込んで必要な情報を抜き出すといった処理が反復処理を使って作成可能です。</p>
+<p>ここではまずは反復処理の基本を押さえます。</p>
+<h3>反復処理を体験しよう</h3>
+<p>それでは反復処理を体験してみましょう。</p>
+<p>反復処理の書き方はいくつかありますが、ここでは代表的な例としてfor文を使った反復処理を体験します。<br>
+まずはコンソール画面に「〇回目の処理」というのを表示してみたいと思います。<br>
+〇はループの回数です。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">for(let i=0;i&lt;5;i++){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log(i + "回目の処理");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<img src="img\loop01.png" width="50%">
+<p>0回目～4回目の合計5回の処理が行われました。</p>
+<h3>反復処理の解説</h3>
+<p>それでは反復処理の内容を見ていきましょう。</p>
+<p>まずは基本的なif文の書き方を説明します。</p>
+<p>【JavaScript】</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">for(カウンターの初期化;条件式;処理が1回終わった後に行う計算){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">条件を満たした場合の処理</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<p>かなりプログラミング的な書き方になってきましたが、日本語で書き下せば意味は分かると思います。<br>
+では見ていきましょう。</p>
+<h4>カウンターの初期化</h4>
+<p>まずカウンターの初期化という項目から始めます。</p>
+<p>反復処理を行う場合、何回繰り返せばいいでしょう？<br>
+無限に処理を繰り返すシステムなんて、リソースを無駄遣いするダメなシステムですよね。<br>
+したがって反復処理を行う中で、何かしら条件を付けてもう1度処理を継続するかどうかについて判断する必要があります。</p>
+<p>for文で反復処理を行う場合、一般的によく用いられるのが処理を行った回数を数えて指定した回数を超えたら処理を終了するというやり方です。</p>
+<p>その際に処理の回数を数える用の変数をカウンターといいます。カウントする（数える）用の変数なのでカウンターと呼んでいます。</p>
+<p>サンプルプログラムでは以下のように書いている部分です。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let i=0;</span></span></span></pre>
+<p>ここではカウンターの変数名をiに設定しています。<br>
+歴史的な経緯から一般作法として、for文のカウンターにはiがよく使われます。</p>
+<p>そして初期値として0に設定しています。<br>
+プログラムの中では0始まりで数を数えなければいけないケースが多々あるため、それに慣れてもらうために今回の処理も初期値を０に設定しました。</p>
+<p>結果、初期値がゼロのカウンターが作られたことになります。</p>
+<h4>条件式</h4>
+<p>続いて条件式についてです。</p>
+<p>反復処理を継続するかどうかの判断をするのがここになります。</p>
+<p>サンプルプログラムでは以下のように書いている部分です。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">i&lt;5;</span></span></span></pre>
+<p>if文の条件式と同じ書き方になっています。<br>
+ここではiが５未満の場合は処理を継続するという条件になっています。</p>
+<h4>処理が1回終わった後に行う計算</h4>
+<p>続いて処理が1回終わった後に行う計算です。</p>
+<p>サンプルプログラムでは以下のように書いている部分です。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">i++</span></span></span></pre>
+<p>++はインクリメントと呼ばれる処理です。<br>
+変数の値を1だけ増やしたい場合にこのような書き方をします。</p>
+<h4>条件を満たした場合の処理</h4>
+<p>条件式を満たした場合に行う処理を書く場所です。</p>
+<p>サンプルプログラムでは以下の処理を書いています。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log(i + "回目の処理");</span></span></span></pre>
+<p>ポイントはカウンターとして作成した変数iを利用しているところです。<br>
+こうすることで処理回数に合わせてコンソールに表示する内容を変えることができます。</p>
+<h4>処理のを追いかけてみよう</h4>
+<p>1 カウンターの初期値として0を設定</p>
+<ul>
+<li>iは0なのでi&lt;5の条件を満たしていると判断</li>
+<li>コンソール画面に「0回目の処理」と表示</li>
+<li>処理が終わったのでi++を実行。iの中身は1になる。</li>
+<li>iは1なのでi&lt;5の条件を満たしていると判断</li>
+<li>コンソール画面に「1回目の処理」と表示</li>
+<li>（中略）</li>
+<li>コンソール画面に「4回目の処理」と表示</li>
+<li>処理が終わったのでi++を実行。iの中身は5になる。</li>
+<li>iは5なのでi&lt;5の条件を満たさない。for文による反復処理を終了。</li>
+</ul>
+<h3>その他１　処理結果の表示を人間に見やすくしてみよう</h3>
+<p>カウンターは0から始めるがコンソール画面は人間に分かりやすく1から始めたい場合にどうすればいいか考えてみてください。</p>
+<p>ぱっと思いつきましたか？</p>
+<p>for文とは全く関係なく、条件に当てはまった時の処理を少し書き換えるだけですね。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">for(let i=0;i&lt;5;i++){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log((i + 1) + "回目の処理");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<img src="img\loop02.png" width="50%">
+<p>こんな感じでコンピュータの処理と人間に対してのUXのバランスを取りながら処理を書いていきます。</p>
+<h3>その他２　処理の回数を増やしてみよう</h3>
+<p>処理手順が決まってさえれば、回数がべらぼうに増えてもコンピュータは文句を言いません。</p>
+<p>処理回数を5回から10000回に増やしてみましょう。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">for(let i=0;i&lt;10000;i++){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log((i + 1) + "回目の処理");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<img src="img\loop03.png" width="50%">
+<h3>まとめ</h3>
+<p>反復処理を行うことで決められた条件の元でコンピュータが繰り返して処理を行ってくれます。</p>
+<p>反復処理をうまく使えるようになると、大量のデータを処理するなども自動化できるようになります。</p>
+<h3>備考</h3>
+<p>処理手順をきちんと決めてプログラムに落とし込むことができれば、コンピュータが人間の代わりに処理をしてくれるようになります。<br>
+しかもミスなく高速に行ってくれます。</p>
+<p>また処理件数が膨大でコンピュータでも時間がかかる処理の場合でも、コンピュータが処理を行ってくれている間に人間は別の仕事を並行して進めることができるため生産性があがります。</p>
+<p>ただしプログラミング言語の文法を覚えただけだとプログラムは書けなくて、業務フローなどのフローチャートを書く力も必要になります。<br>
+業務指示を出すときは人間相手でもコンピュータ相手でもフローが必要なんですね。</p>
 <p><a href="./index5.html">&lt; 分岐処理</a> | <a href="./index7.html">関数 &gt;</a></p>
 
   </body>

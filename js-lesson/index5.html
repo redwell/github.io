@@ -790,7 +790,7 @@ if文と呼ばれる処理です。</p>
 </ul>
 <h4>完全に一致のパターン</h4>
 <p>【日本語】</p>
-<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 変数joukenに格納された値が***7と完全に一致する場合***はコンソールに「ラッキーセブン！」と表示</span></span></span>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 変数joukenに格納された値が7と完全に一致する場合はコンソールに「ラッキーセブン！」と表示</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 7以外の場合は「残念！！」と表示</span></span></span></pre>
 <p>【JavaScript】</p>
 <pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let jouken = 7;</span></span></span>
@@ -800,9 +800,10 @@ if文と呼ばれる処理です。</p>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else{</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("残念！！");</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<img src="img\branch03.png" width="50%">
 <h4>より大きいパターン</h4>
 <p>【日本語】</p>
-<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 変数joukenに格納された値が***7よりも大きい場合***はコンソールに「ビッグ！」と表示</span></span></span>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 変数joukenに格納された値が7よりも大きい場合はコンソールに「ビッグ！」と表示</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- それ以外の場合は「スモール・・・」と表示</span></span></span></pre>
 <p>【JavaScript】</p>
 <pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let jouken = 7;</span></span></span>
@@ -812,11 +813,94 @@ if文と呼ばれる処理です。</p>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else{</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("スモール・・・");</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<img src="img\branch04.png" width="50%">
 <h4>以上のパターン</h4>
 <p>【日本語】</p>
-<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"></span></span> </pre>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 変数joukenに格納された値が7以上の場合はコンソールに「ビッグ！」と表示</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- それ以外の場合は「スモール・・・」と表示</span></span></span></pre>
 <p>【JavaScript】</p>
-<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"></span></span> </pre>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let jouken = 7;</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">if(jouken &gt;= 7){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("ビッグ！");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("スモール・・・");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<img src="img\branch05.png" width="50%">
+<h4>以下のパターン</h4>
+<p>【日本語】</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 変数joukenに格納された値が7以下の場合はコンソールに「スモール・・・」と表示</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- それ以外の場合は「ビッグ！」と表示</span></span></span></pre>
+<p>【JavaScript】</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let jouken = 7;</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">if(jouken &lt;= 7){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("スモール・・・");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("ビッグ！");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<img src="img\branch06.png" width="50%">
+<h4>未満のパターン</h4>
+<p>【日本語】</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 変数joukenに格納された値が7未満の場合はコンソールに「スモール・・・」と表示</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- それ以外の場合は「ビッグ！」と表示</span></span></span></pre>
+<p>【JavaScript】</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let jouken = 7;</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">if(jouken &lt; 7){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("スモール・・・");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("ビッグ！");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<img src="img\branch07.png" width="50%">
+<h3>分岐が複数ある場合</h3>
+<p>条件を付けて分岐するのには慣れてきましたか？</p>
+<p>次は複数の分岐がある場合について説明をします。<br>
+これも日本語を書いてそのあとにコードを載せておきます。</p>
+<p>【日本語】</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 変数joukenに格納された値がredの場合はコンソールに「レッドスネーク、щ(ﾟДﾟщ)ｶﾓｰﾝ！」と表示</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 変数joukenに格納された値がyellowの場合はコンソールに「イエロースネーク、щ(ﾟДﾟщ)ｶﾓｰﾝ！」と表示</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- それ以外の場合は「ノースネーク・・・」と表示</span></span></span></pre>
+<p>【JavaScript】</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let jouken = "yellow";</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">if(jouken === "red"){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("レッドスネーク、щ(ﾟДﾟщ)ｶﾓｰﾝ！");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else if(jouken === "yellow"){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("イエロースネーク、щ(ﾟДﾟщ)ｶﾓｰﾝ！")</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("ノースネーク・・・");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<img src="img\branch08.png" width="50%">
+<p>ポイントは<em><strong>else if</strong></em>という書き方ですね。<br>
+else ifを続けていくことで2つ以上の分岐を作りことが可能です。<br>
+他は今までと同じです。</p>
+<h3>条件文の処理も順次処理</h3>
+<p>もし1つ目の条件にも2つ目の条件にも当てはまってしまうデータの場合に、処理がどうなるかを見てみましょう。</p>
+<p>【日本語】</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 変数joukenに格納された値は100</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 値が10以上の場合はコンソール画面に「10以上です」と表示</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- 値が20以上の場合はコンソール画面に「20以上です」と表示</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">- それ以外の場合は「大きい数ですね」と表示</span></span></span></pre>
+<p>【JavaScript】</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let jouken = 100;</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">if(jouken &gt;= 10){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("10以上です");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else if(jouken &gt;= 20){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("20以上です")</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("10未満の数字です");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<img src="img\branch09.png" width="50%">
+<p>1つ目の条件にも2つ目の条件にも当てはまっていますが、コンソール画面の結果を見ると1つ目の条件での処理だけが書かれています。</p>
+<p>条件文も順次処理で行われるため、書いた順番で条件をチェックします。<br>
+そして最初に条件に当てはまった場所で処理を行います。</p>
+<p>if文は分岐も含めてif文全体で1つの処理となるため、条件に当てはまった場所で処理を行ったら条件分岐の処理はそこで終了です。</p>
+<p>したがってif文で複数の条件を連ねる場合は、条件を書く順番に注意する必要があります。</p>
+<h3>まとめ</h3>
+<p>if文で条件によって処理を変えることができます。</p>
+<p>ここでは紹介しませんでしたが、複数の条件に合致した場合にだけ処理を行うand条件や、複数の条件のうちの1つに当てはまれば処理を行うor条件など、条件文の書き方は他にもあります。それぞれ特別な記号を使うので興味があれば調べて、実際にコードを書いてみてください。</p>
 <p><a href="./index4.html">&lt; 順次処理</a> | <a href="./index6.html">反復処理 &gt;</a></p>
 
   </body>

@@ -665,12 +665,59 @@ pre.editor-colors .fold-marker:after {
  * Examples
  * (To see them, uncomment and save)
  */
+.syntax--paragraph {
+  background-color: #ffffff;
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 20px;
+}
 </style>
 
   </head>
   <body>
     <h2>関数</h2>
-<p>これから書く</p>
+<p>ここまでのレッスンでJavaScriptの基本的な書き方を学びました。</p>
+<p>次は関数について学んでいきましょう。</p>
+<h3>関数とは</h3>
+<p>みなさんは関数というと何を思い浮かべるでしょう？<br>
+多くの方はExcelの関数を思い出すんじゃないでしょうか。</p>
+<p>例えばSUM関数であれば、与えられた数値をすべて足し算して、その計算結果を返すという処理になります。</p>
+<p>このようにプログラミングにおける関数は、実行したい処理をまとめて名前を付けたものとなります。</p>
+<p>そしてプログラミングの世界では、この関数を自分で作って使いこなしていくことになります。</p>
+<p>例えば分岐処理のレッスンでは同じif文を何度も入力しましたが、関数を使えばあの手間がなくなります。<br>
+実際に試してみます。</p>
+<h3>関数を体験しよう</h3>
+<p>それではまずは関数を体験してみましょう。</p>
+<p>まずは関数を定義します。<br>
+ここではbunkiという名前の関数を作っています。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">function bunki(jouken){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">if(jouken === "red"){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("レッドスネーク、щ(ﾟДﾟщ)ｶﾓｰﾝ！");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">}else if(jouken === "yellow"){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("イエロースネーク、щ(ﾟДﾟщ)ｶﾓｰﾝ！")</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">}else{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("ノースネーク・・・");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<img src="img\func01.png" width="50%">
+<p>では定義した関数にredという文字列を渡してみます。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">bunki("red");</span></span></span></pre>
+<img src="img\func02.png" width="50%">
+<p>レッドスネークが呼び出されました！</p>
+<p>今度はyellowという文字列を渡してみます。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">bunki("yellow");</span></span></span></pre>
+<img src="img\func03.png" width="50%">
+<p>イエロースネークが呼び出されました！</p>
+<p>分岐処理にないorangeという文字列を渡してみます。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">bunki("orange");</span></span></span></pre>
+<img src="img\func04.png" width="50%">
+<p>ノースネークでした・・・</p>
+<p>関数とは「実行したい処理をまとめて名前を付けたもの」という定義が少しは感じられたでしょうか？</p>
+<p>関数として定義することで、呼び出して何度も使えるのが便利ですね。</p>
+<h3>関数の解説</h3>
+<p>それでは関数の解説していきます。<br>
+まずは関数にまつわる重要な用語から説明します。</p>
+<h4>引数と戻り値</h4>
 <p><a href="./index6.html">&lt; 反復処理</a> | <a href="./index8.html">HTMLと組み合わせて使ってみよう &gt;</a></p>
 
   </body>

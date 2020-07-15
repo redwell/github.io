@@ -182,6 +182,7 @@ function sankaku(width,height){
   console.log("底辺が" + width + "、高さが" + height + "の三角形の面積は" + area + "です。");
 }
 ```
+<img src="./img/func07.png" width="50%"/>
 
 続いて関数を実行します。
 その際に底辺と高さを与えてみます。
@@ -190,7 +191,7 @@ function sankaku(width,height){
 ```
 sankaku(24,5);
 ```
-<img src="./img/func06.png" width="50%"/>
+<img src="./img/func08.png" width="50%"/>
 
 このように2つ以上の引数を利用することも可能です。
 
@@ -216,17 +217,20 @@ function quad(length){
   return area;
 }
 ```
+<img src="./img/func09.png" width="50%"/>
 
 この関数から戻り値を受け取ってみましょう。
 戻り値を受け取る場合、変数を使うと便利です。
 
 一辺が10の正方形の面積を求めて、変数anserに格納します。
-その後、answerの値を使ってアラートを表示してみます。
+その後、answerの値を使ってconsole.logで答えを表示してみます。
 ```
 let side = 10;
 let answer = quad(side);
-alert("一辺が" + side + "の正方形の面積は" + answer + "です。");
+console.log("一辺が" + side + "の正方形の面積は" + answer + "です。");
 ```
+<img src="./img/func10.png" width="50%"/>
+
 
 ### まとめ
 - 実行したい一連の処理をまとめたものを関数と言います。

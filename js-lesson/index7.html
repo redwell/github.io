@@ -714,11 +714,107 @@ pre.editor-colors .fold-marker:after {
 <p>ノースネークでした・・・</p>
 <p>関数とは「実行したい処理をまとめて名前を付けたもの」という定義が少しは感じられたでしょうか？</p>
 <p>関数として定義することで、呼び出して何度も使えるのが便利ですね。</p>
+<h3>関数の書式</h3>
+<p>まずは書式を説明し、その後に用語と動きを解説していきます。</p>
+<h4>関数の定義方法</h4>
+<p>詳細はあとで説明しますが、関数を定義する際の書式を先に説明しておきます。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">function 関数名(引数){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">関数が呼び出された際に実行される処理</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<h4>関数の呼び出し方</h4>
+<p>関数を呼び出す場合の書式を説明します。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">関数名(引数);</span></span></span></pre>
 <h3>関数の解説</h3>
-<p>それでは関数の解説していきます。<br>
-まずは関数にまつわる重要な用語から説明します。</p>
-<h4>引数と戻り値</h4>
-<p><a href="./index6.html">&lt; 反復処理</a> | <a href="./index8.html">HTMLと組み合わせて使ってみよう &gt;</a></p>
+<p>それでは関数の解説していきます。</p>
+<h4>引数</h4>
+<p>引数は「ひきすう」と読みます。</p>
+<p>関数を呼び出す際に、関数に渡す値のことを引数と言います。</p>
+<p>さきほど作った関数でいうと「bunki」が関数名、「“red”」が引数になります。<br>
+redの前後にダブルクオーテーションが入っているのは、文字列として扱い場合の書き方でしたね。<br>
+※文字列として扱う場合にダブルクオーテーションが必要なことを忘れちゃった人は<a href=".index3.html">変数の基本</a>を読み返してください。</p>
+<p>ここで関数を定義したコードを確認してみましょう。</p>
+<p>一行目に以下のコードがあります。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">function bunki(jouken){</span></span></span></pre>
+<p>括弧内のjoukenという部分が実は変数になっています。<br>
+引数に設定された値は、ここで受け取ることができます。</p>
+<p>このコードで具体的に説明すると、bunkiという関数の引数に"red"という値を渡すと、joukenという変数に"red"という値が格納されます。</p>
+<p>そして2行目以降に書かれている以下のコードで、変数に格納された値も含めて処理が実行されます。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">if(jouken === "red"){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("レッドスネーク、щ(ﾟДﾟщ)ｶﾓｰﾝ！");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else if(jouken === "yellow"){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("イエロースネーク、щ(ﾟДﾟщ)ｶﾓｰﾝ！")</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}else{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("ノースネーク・・・");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<p>ちなみに引数の個数ですが、関数ごとに異なります。</p>
+<p>引数が1つの場合はすでにサンプルを見ているので、引数がない場合と引数が2つ以上ある場合について見てみましょう。</p>
+<h5>引数がない場合</h5>
+<p>引数なしの場合は以下のように括弧の中を空欄にします。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">関数名();</span></span></span></pre>
+<p>具体的な例を見てみましょう。<br>
+関数が呼び出されるとポップアップで「こんにちは！」と表示されるだけのシンプルなコードを書いてみます。</p>
+<p>関数は以下の通りです。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">function hello(){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">alert("こんにちは！");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<img src="img\func05.png" width="50%">
+<p>それでは関数を呼び出してみましょう。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">hello();</span></span></span></pre>
+<img src="img\func06.png" width="50%">
+<p>このように決まった処理を行うだけの関数は引数なしとなります。</p>
+<h5>引数が2つ以上の場合</h5>
+<p>2つ以上の引数を使う場合は、カンマ区切りで入力します。<br>
+以下は2つの場合の例です。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">関数名(引数１,引数２);</span></span></span></pre>
+<p>具体的な例を見てみましょう。<br>
+三角形の面積を求める関数を作ってみます。</p>
+<p>三角形の面積を求める公式は覚えていますか？<br>
+以下が公式です。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">底辺×高さ÷2</span></span></span></pre>
+<p>この計算を関数化してみます。<br>
+引数は底辺と高さの2つが必要になりますので、<br>
+底辺:width、高さ:heightとして作成してみます。<br>
+計算結果はコンソール画面に表示することにします。</p>
+<p>では、まずは三角形の面積を求める関数を定義します。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">function sankaku(width,height){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">let area = width * height / 2</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">  </span>console.log("底辺が" + width + "、高さが" + height + "の三角形の面積は" + area + "です。");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<p>続いて関数を実行します。<br>
+その際に底辺と高さを与えてみます。<br>
+好きな数字を入れてくれてよいです。<br>
+ここでは底辺を24、高さを15としています。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">sankaku(24,5);</span></span></span></pre>
+<img src="img\func06.png" width="50%">
+<p>このように2つ以上の引数を利用することも可能です。</p>
+<h4>戻り値</h4>
+<p>続いて戻り値（もどりち）です。<br>
+関数が処理を完了する際に、呼び出し元に渡す値を戻り値と言います。</p>
+<p>これまでのサンプルでは、例えば計算して結果をコンソールに表示するなど、すべて処理を関数の中で完結させていました。</p>
+<p>しかし、様々な処理をプログラムしていく際に、関数で処理をした結果を別の処理で使いたい場合があります。</p>
+<p>そうした場合に戻り値を使います。</p>
+<h5>戻り値を体験してみよう</h5>
+<p>ここでは簡単な例で戻り値を扱ってみようと思います。</p>
+<p>正方形の面積を計算して戻してくれる関数を作ってみます。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">function quad(length){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">let area = length * length;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">  </span>return area;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<p>この関数から戻り値を受け取ってみましょう。<br>
+戻り値を受け取る場合、変数を使うと便利です。</p>
+<p>一辺が10の正方形の面積を求めて、変数anserに格納します。<br>
+その後、answerの値を使ってアラートを表示してみます。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let side = 10;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let answer = quad(side);</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">alert("一辺が" + side + "の正方形の面積は" + answer + "です。");</span></span></span></pre>
+<h3>まとめ</h3>
+<ul>
+<li>実行したい一連の処理をまとめたものを関数と言います。</li>
+<li>関数を作成することで作成した処理を再利用することができます。</li>
+<li>関数を実行する際に与える値を「引数（ひきすう）」と言います。</li>
+<li>関数の処理結果として得られる値を「戻り値（もどりち）」と言います。</li>
+</ul>
+<p><a href="./index6.html">&lt; 反復処理</a> | <a href="./index8.html">Web APIを叩いてみよう &gt;</a></p>
 
   </body>
 </html>

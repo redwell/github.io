@@ -665,13 +665,174 @@ pre.editor-colors .fold-marker:after {
  * Examples
  * (To see them, uncomment and save)
  */
+.syntax--paragraph {
+  background-color: #ffffff;
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 20px;
+}
 </style>
 
   </head>
   <body>
-    <h2>HTMLと組み合わせて使ってみよう</h2>
-<p>これから書く</p>
-<p>[&lt; 関数]</p>
+    <h2>Web APIを叩いてみよう 前置き編</h2>
+<p>前のページまででJavaScriptの基本的な書き方を学ぶことができました。</p>
+<p>次はWeb APIを叩くことをゴールに話を進めていきます。</p>
+<p>前置き編では以下について説明をします。</p>
+<ul>
+<li>APIについて</li>
+<li>Web APIについて</li>
+<li>HTTPメソッドとCRUD</li>
+<li>配列について</li>
+<li>JSONについて</li>
+</ul>
+<h3>APIとは</h3>
+<p>まずAPIとは何かを考えてみます。</p>
+<p>まずAPIという言葉です。<br>
+APIはApplication Programming Interfaceの略です。<br>
+英語で見るとなんだか難しそうですね・・・</p>
+<p>APIをざっくり説明すると以下となります。</p>
+<ul>
+<li>とある機能を持ったプログラムAがあります。</li>
+<li>プログラムAは自分の機能を公開して、他のプログラムにも使わせてあげることにしました。</li>
+<li>プログラムAは自分の機能を使う場合の手順とデータフォーマットを決めました。これがAPIです。</li>
+<li>APIに対して処理してほしいデータを渡すと、処理結果を戻してくれます。</li>
+</ul>
+<p>これ、どこかで見たものに似てませんか？</p>
+<p>関数の仕組みとそっくりですよね。<br>
+引数と戻り値もあります。</p>
+<p>実はAPIも関数の一種と考えることができます。</p>
+<h3>Web APIとは</h3>
+<p>次にWeb APIです。</p>
+<p>APIを呼び出す場合、実はいろいろな手順やデータフォーマットがあります。<br>
+その中でもWeb技術を利用するタイプのAPIをWeb APIと呼んでいます。</p>
+<p>Web APIでは通信の仕組みとしてHTTPを使い、データフォーマットではXMLやJSONを使うことが多いです。</p>
+<p>したがってアクセスの際にはURLを利用します。<br>
+データの渡し方はHTTPメソッドを使います。</p>
+<p>通常、Web APIにはReferenceがありますので<br>
+実際にWeb APIを使う場合はReferenceを参照しながら<br>
+URL、データフォーマット、HTTPメソッドを選んでください。</p>
+<h4>HTTPメソッドとCRUD</h4>
+<p>JavaScript入門から離れてしまうので深追いしませんが、<br>
+Web APIでよく使われるHTTPメソッドはGET/POST/PUT/DELETEの4つです。</p>
+<p>これはデータベースの基本処理であるCRUD（クラッド）と呼ばれる考え方に基づいています。<br>
+CRUDはCreate（作成）/Read（読み込み）/Update（更新）/Delete（削除）です。</p>
+<p>基本的には以下のイメージで使われますが、<br>
+そもそもHTTPメソッドとCRUDは別ものなので完全に一致した使われ方にはなっていないのが現状です。</p>
+<ul>
+<li>GET - Read</li>
+<li>POST - Create</li>
+<li>PUT - Update</li>
+<li>DELETE - Delete</li>
+</ul>
+<p>HTTPメソッドやCRUDについて詳しく知りたい人はググって見てください。</p>
+<h3>配列について</h3>
+<p>Web APIを扱うにあたって、最低限必要なデータの扱いに配列があります。</p>
+<p>なぜ配列が必要かというと、多くのWeb APIではレスポンスに配列を含んでいるため、配列が理解できていないと受け取ったレスポンスを処理できないからです。</p>
+<p>配列自体はそこまで難しい考え方ではないので、簡単に説明をしておきます。</p>
+<p>まずは配列を体験してみましょう。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let hairetsu = ["1つ目のデータ","2つ目のデータ","3つ目のデータ"];</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log(hairetsu);</span></span></span></pre>
+<img src="img\api1-01.png" width="50%">
+<p>ポイントは1行目で変数にデータを格納する際に、[]で囲んでいるところです。</p>
+<p>[]の中にカンマ区切りでデータを入力することで、1つの変数の中に複数のデータをまとめて登録することができます。これが配列です。</p>
+<p>コンソール画面の出力を見ると右向きの三角があるのでそこをクリックしてみてください。<br>
+登録したデータに番号が振られて保存されているのが分かると思います。<br>
+この番号を使って、登録したデータを個別に取り出すことができます。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log(hairetsu[0]);</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log(hairetsu[1]);</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log(hairetsu[2]);</span></span></span></pre>
+<img src="img\api1-02.png" width="50%">
+<p>ポイントは配列の登録が0始まりになっているということです。<br>
+1つ目の番号にアクセスする場合は0を指定、2つ目のデータにアクセスする場合は1を指定という風になっています。<br>
+コンピュータの処理上の問題なので、そういうものだと思って覚えてください。</p>
+<p>これが配列の基本的な扱い方です。</p>
+<p>ちなみに上記では配列に登録されているデータ数が3つだと分かっていたので手書きしましたが、登録されているデータが1つかもしれないし10000個かもしれない場合にどうすればいいのかという問題があります。</p>
+<p>これも簡単に処理することが可能です。<br>
+「配列.lengh」という風にプログラムを書くと、配列の長さ（登録されているデータ数）が取得できまます。<br>
+数が分かってしまえば、あとはforループで処理が可能です。</p>
+<p>サンプルコードは以下の通りです。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let hairetsu = ["1つ目のデータ","2つ目のデータ","3つ目のデータ","4つ目のデータ"];</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">for(let i = 0; i &lt; hairetsu.length; i++){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log(hairetsu[i]);</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<img src="img\api1-03.png" width="50%">
+<p>このように配列はfor文など他の文法と組合わせて使うことで強い力を発揮することができます。</p>
+<p>今回はWeb APIのレスポンスを処理することが目的なので、配列の説明は以上です。</p>
+<p>プログラミングの中で配列をどのように活用していくかはいろいろなアプローチがあるので、いろいろ調べたりコードを書いてみたりしてくださいね。</p>
+<h3>JSONについて</h3>
+<h4>データフォーマットについて</h4>
+<p>Web APIを扱うにあたって、データフォーマットとして押さえておきたいのがJSONです。</p>
+<p>データフォーマットというのは、コンピュータ上でデータを扱うときのルールのことです。</p>
+<p>例えばCSVであれば、それぞれの値をカンマで区切るというルールで作成します。</p>
+<p>XMLであれば「<xxx>データ</xxx>」という風にデータをタグで囲むというルールでデータを作成します。</p>
+<p>特定のアプリケーションでしか使われないフォーマットもあれば、一般的な形式として様々なアプリケーションで使われているフォーマットもあります。</p>
+<p>いろいろなアプリケーションで共通のデータフォーマットが使われるメリットを考えてみましょう。</p>
+<p>例えばシステムAからシステムBにデータを渡したいという場合を考えてみましょう。</p>
+<p>もしデータフォーマットが違う場合はシステムAのデータフォーマットからシステムBのデータフォーマットに変換するプログラムを作成する必要があります。</p>
+<p>システムAとシステムBの2つだけであればどうにかなるかもしれませんが、ではシステムが100種類あったらどうでしょう？<br>
+データフォーマット変換プログラムの数がものすごい数になってしまいますね。</p>
+<p>この問題を解決するのが共通のデータフォーマットになります。<br>
+システム間で同じデータフォーマットが使えれば、データをそのまま渡して読み込んでもらうことができます。</p>
+<p>JSONもこうしたデータフォーマットのひとつで、様々なアプリケーションで利用されています。</p>
+<h4>JSONのフォーマット</h4>
+<p>前置きが長くなりましたが、それでは本題のJSONです。</p>
+<p>JSONはJavaScript Object Notationの略で、JavaScriptで使われていたデータフォーマットが広まったものです。</p>
+<p>CSVがカンマ区切りでデータを記述するように、JSONも決まったルールでデータを記述します。</p>
+<p>それではJSONのフォーマットを見てみましょう。<br>
+まずは基本系からです。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">{ "name": "Tom" , "age": 30 }</span></span></span></pre>
+<p>JSONは外側を{}で囲み、中にデータを入力します。<br>
+データを入力する際はキー名と値をセットにしてコロンで区切って入力します。<br>
+※キー名は項目名くらいに思っておいてもらえれば大丈夫です。</p>
+<p>キー名はダブルクオーテーションで囲みます。</p>
+<p>値については文字列の場合はダブルクオーテーションで囲みますが、数値型など文字列として扱いたくない場合はダブルクオーテーションなしで書きます。</p>
+<p>複数のキー名と値を扱いたい場合は、カンマで区切って入力します。<br>
+最後のキー名と値の後ろにはカンマは入らないので注意です。</p>
+<p>データ量が増えると見難くなるので、以下のように改行とインデントを入れて見やすくすることが多いです。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">"name": "Tom" ,</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">   </span><span class="syntax--meta syntax--paragraph syntax--text">"age": 30</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<h4>JavaScriptでJSONを扱ってみよう</h4>
+<p>JSONにすると何がいいの？っていう素朴な疑問が出てくると思いますので、疑問解消のためにJavaScriptでJSONを扱ってみましょう。</p>
+<p>まずは簡単なJSONからはじめます。<br>
+コードは以下の通りです。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let sample_data = {</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">"name": "Tom" ,</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">   </span><span class="syntax--meta syntax--paragraph syntax--text">"age": 30</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">};</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log(sample_data.name);</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log(sample_data.age);</span></span></span></pre>
+<img src="img\api1-04.png" width="50%">
+<p>まず最初に変数sample_dataにJSONデータを格納しています。</p>
+<p>その後にconsole.log()でコンソール画面にJSONに格納したデータを表示しています。<br>
+その際に変数名.キー名という形でデータにアクセスできているのが分かるでしょうか。</p>
+<p>このように変数名はキー名といった人間に分かりやすい情報を使ってデータにアクセスできるところが、JSONのメリットと言えます。</p>
+<p>しんどいのでサンプルコードは書かないですが、これを単純な文字列の処理としてやろうとするとざっくり下のような流れになります・・・</p>
+<ol>
+<li>最初のnameまでの文字数を変え添える</li>
+<li>nameの後ろに":"があるので、1の文字数から数えて4つ目が名前が始まる場所だと分かる。</li>
+<li>次に"が出てくる場所の文字数が最初から何文字目かを判定し、その1つ前までが名前が入力されている場所だと判断する</li>
+<li>2と3の範囲で文字を抜き出すと名前が取得できる</li>
+</ol>
+<p>JSONの便利さが少しイメージできたでしょうか？</p>
+<h4>複雑なJSONの例</h4>
+<p>実際にWeb APIを扱う場合は、もう少し複雑なJSONを扱います。</p>
+<p>こちらも具体的な例を見ておきましょう。</p>
+<p>まずは扱うJSONから。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">"service_name": "streaming_music",</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">  </span>"plan": "free",</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">  </span>"user_list": [</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">{"name":"Tom","age":30,"favorite":["rock"]},</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">    </span>{"name":"mary","age":27,"favorite":["rock","jazz"]},</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">    </span>{"name":"george","age":50,"favorite":["classic"]}</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">]</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span>
+<span></span> </pre>
+<p><a href="./index7.html">&lt; 関数</a> | <a href="./index9.html">Web APIを叩いてみよう &gt;</a></p>
 
   </body>
 </html>

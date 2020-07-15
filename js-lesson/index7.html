@@ -780,12 +780,13 @@ redの前後にダブルクオーテーションが入っているのは、文�
 <span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">let area = width * height / 2</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">  </span>console.log("底辺が" + width + "、高さが" + height + "の三角形の面積は" + area + "です。");</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<img src="img\func07.png" width="50%">
 <p>続いて関数を実行します。<br>
 その際に底辺と高さを与えてみます。<br>
 好きな数字を入れてくれてよいです。<br>
 ここでは底辺を24、高さを15としています。</p>
 <pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">sankaku(24,5);</span></span></span></pre>
-<img src="img\func06.png" width="50%">
+<img src="img\func08.png" width="50%">
 <p>このように2つ以上の引数を利用することも可能です。</p>
 <h4>戻り値</h4>
 <p>続いて戻り値（もどりち）です。<br>
@@ -800,13 +801,15 @@ redの前後にダブルクオーテーションが入っているのは、文�
 <span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">let area = length * length;</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">  </span>return area;</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<img src="img\func09.png" width="50%">
 <p>この関数から戻り値を受け取ってみましょう。<br>
 戻り値を受け取る場合、変数を使うと便利です。</p>
 <p>一辺が10の正方形の面積を求めて、変数anserに格納します。<br>
-その後、answerの値を使ってアラートを表示してみます。</p>
+その後、answerの値を使ってconsole.logで答えを表示してみます。</p>
 <pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let side = 10;</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let answer = quad(side);</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">alert("一辺が" + side + "の正方形の面積は" + answer + "です。");</span></span></span></pre>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log("一辺が" + side + "の正方形の面積は" + answer + "です。");</span></span></span></pre>
+<img src="img\func10.png" width="50%">
 <h3>まとめ</h3>
 <ul>
 <li>実行したい一連の処理をまとめたものを関数と言います。</li>

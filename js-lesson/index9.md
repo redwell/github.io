@@ -4,7 +4,40 @@ JavaScriptの書き方を学び、Web APIを扱うために必要なデータ構
 次はお待ちかねのWeb APIを叩いてみる編です！
 
 
-### 
+### 今回利用するWeb APIについて
+今回はJSON Placeholderというサイトを利用します。
+
+[JSON Placeholder](https://jsonplaceholder.typicode.com/)
+
+このサイトは開発者向けにテスト用のWeb APIを公開してくれているサイトです。
+いくつかのWeb APIが用意されていて、アクセスするとダミーのJSONデータを返してくれます。
+
+様々なサービスでWeb APIが公開されていますが、それらを利用するためには申し込み手続きを行い、JavaScriptで認証を行うためのプログラム開発が必要になります。
+
+それらは今回のテーマから大きく逸脱してしまうので、今回は無料で使えるJSON Placeholderを使うことにしました。
+
+
+### データ構造を確認しておこう
+まずはブラウザでアクセスして、どんなJSONデータが返ってくるのかを確認しておきましょう。
+
+
+[ダミーのユーザーデータ](https://jsonplaceholder.typicode.com/users)
+
+今回のデータは全体が配列になっていて、中に複数のJSONが格納されています。
+
+構造としては以下のような形です。
+```
+[{1つ目のJSON},{2つ目のJSON},{3つ目のJSON},...]
+```
+
+一応キャプチャも貼っておきます。
+
+<img src="./img/api2-01.png" width="50%"/>
+
+
+### JavaScriptでWeb APIを叩いてデータを取得しよう
+
+
 
 
 ## まとめ

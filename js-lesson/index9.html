@@ -676,7 +676,24 @@ pre.editor-colors .fold-marker:after {
   </head>
   <body>
     <h2>Web APIを叩いてみよう 実践編</h2>
-<h3>これから書く</h3>
+<p>JavaScriptの書き方を学び、Web APIを扱うために必要なデータ構造を学びました。</p>
+<p>次はお待ちかねのWeb APIを叩いてみる編です！</p>
+<h3>今回利用するWeb APIについて</h3>
+<p>今回はJSON Placeholderというサイトを利用します。</p>
+<p><a href="https://jsonplaceholder.typicode.com/">JSON Placeholder</a></p>
+<p>このサイトは開発者向けにテスト用のWeb APIを公開してくれているサイトです。<br>
+いくつかのWeb APIが用意されていて、アクセスするとダミーのJSONデータを返してくれます。</p>
+<p>様々なサービスでWeb APIが公開されていますが、それらを利用するためには申し込み手続きを行い、JavaScriptで認証を行うためのプログラム開発が必要になります。</p>
+<p>それらは今回のテーマから大きく逸脱してしまうので、今回は無料で使えるJSON Placeholderを使うことにしました。</p>
+<h3>データ構造を確認しておこう</h3>
+<p>まずはブラウザでアクセスして、どんなJSONデータが返ってくるのかを確認しておきましょう。</p>
+<p><a href="https://jsonplaceholder.typicode.com/users">ダミーのユーザーデータ</a></p>
+<p>今回のデータは全体が配列になっていて、中に複数のJSONが格納されています。</p>
+<p>構造としては以下のような形です。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">[{1つ目のJSON},{2つ目のJSON},{3つ目のJSON},...]</span></span></span></pre>
+<p>一応キャプチャも貼っておきます。</p>
+<img src="img\api2-01.png" width="50%">
+<h3>JavaScriptでWeb APIを叩いてデータを取得しよう</h3>
 <h2>まとめ</h2>
 <p><a href="./index8.html">&lt; Web APIを叩いてみよう 前置き編</a> | <a href="./index10.html">HTMLと組み合わせて使ってみよう &gt;</a></p>
 <p><a href="./index.html">0.JavaScriptについて</a><br>

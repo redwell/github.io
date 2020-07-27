@@ -678,6 +678,46 @@ pre.editor-colors .fold-marker:after {
     <h2>Web APIを叩いてみよう 実践編</h2>
 <p>JavaScriptの書き方を学び、Web APIを扱うために必要なデータ構造を学びました。</p>
 <p>次はお待ちかねのWeb APIを叩いてみる編です！</p>
+<h3>APIとは</h3>
+<p>まずAPIとは何かを考えてみます。</p>
+<p>まずAPIという言葉です。<br>
+APIはApplication Programming Interfaceの略です。<br>
+英語で見るとなんだか難しそうですね・・・</p>
+<p>APIをざっくり説明すると以下となります。</p>
+<ul>
+<li>とある機能を持ったプログラムAがあります。</li>
+<li>プログラムAは自分の機能を公開して、他のプログラムにも使わせてあげることにしました。</li>
+<li>プログラムAは自分の機能を使う場合の手順とデータフォーマットを決めました。これがAPIです。</li>
+<li>APIに対して処理してほしいデータを渡すと、処理結果を戻してくれます。</li>
+</ul>
+<p>これ、どこかで見たものに似てませんか？</p>
+<p>関数の仕組みとそっくりですよね。<br>
+引数と戻り値もあります。</p>
+<p>実はAPIも関数の一種と考えることができます。</p>
+<h3>Web APIとは</h3>
+<p>次にWeb APIです。</p>
+<p>APIを呼び出す場合、実はいろいろな手順やデータフォーマットがあります。<br>
+その中でもWeb技術を利用するタイプのAPIをWeb APIと呼んでいます。</p>
+<p>Web APIでは通信の仕組みとしてHTTPを使い、データフォーマットではXMLやJSONを使うことが多いです。</p>
+<p>したがってアクセスの際にはURLを利用します。<br>
+データの渡し方はHTTPメソッドを使います。</p>
+<p>通常、Web APIにはReferenceがありますので<br>
+実際にWeb APIを使う場合はReferenceを参照しながら<br>
+URL、データフォーマット、HTTPメソッドを選んでください。</p>
+<h4>HTTPメソッドとCRUD</h4>
+<p>JavaScript入門から離れてしまうので深追いしませんが、<br>
+Web APIでよく使われるHTTPメソッドはGET/POST/PUT/DELETEの4つです。</p>
+<p>これはデータベースの基本処理であるCRUD（クラッド）と呼ばれる考え方に基づいています。<br>
+CRUDはCreate（作成）/Read（読み込み）/Update（更新）/Delete（削除）です。</p>
+<p>基本的には以下のイメージで使われますが、<br>
+そもそもHTTPメソッドとCRUDは別ものなので完全に一致した使われ方にはなっていないのが現状です。</p>
+<ul>
+<li>GET - Read</li>
+<li>POST - Create</li>
+<li>PUT - Update</li>
+<li>DELETE - Delete</li>
+</ul>
+<p>HTTPメソッドやCRUDについて詳しく知りたい人はググって見てください。</p>
 <h3>今回利用するWeb APIについて</h3>
 <p>今回はJSON Placeholderというサイトを利用します。</p>
 <p><a href="https://jsonplaceholder.typicode.com/">JSON Placeholder</a></p>
@@ -695,7 +735,7 @@ pre.editor-colors .fold-marker:after {
 <img src="img\api2-01.png" width="50%">
 <h3>JavaScriptでWeb APIを叩いてデータを取得しよう</h3>
 <h2>まとめ</h2>
-<p><a href="./index8.html">&lt; Web APIを叩いてみよう 前置き編</a> | <a href="./index10.html">HTMLと組み合わせて使ってみよう &gt;</a></p>
+<p><a href="./index8.html">&lt; データ構造について</a> | <a href="./index10.html">HTMLと組み合わせて使ってみよう &gt;</a></p>
 <p><a href="./index.html">0.JavaScriptについて</a><br>
 <a href="./index2.html">1.ブラウザのConsole画面の使い方</a><br>
 <a href="./index3.html">2.変数の基本</a><br>
@@ -703,8 +743,8 @@ pre.editor-colors .fold-marker:after {
 <a href="./index5.html">4.分岐処理</a><br>
 <a href="./index6.html">5.反復処理</a><br>
 <a href="./index7.html">6.関数</a><br>
-<a href="./index8.html">7.Web APIを叩いてみよう　前置き編</a><br>
-<a href="./index9.html">8.Web APIを叩いてみよう　実践編</a><br>
+<a href="./index8.html">7.データ構造について</a><br>
+<a href="./index9.html">8.Web APIを叩いてみよう</a><br>
 <a href="./index10.html">9.HTMLと組み合わせて使ってみよう</a></p>
 
   </body>

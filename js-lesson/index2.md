@@ -183,6 +183,6 @@ console.log("私は永遠の" + 18 + "歳です。");
 [4.分岐処理](./index5.html)
 [5.反復処理](./index6.html)
 [6.関数](./index7.html)
-[7.Web APIを叩いてみよう　前置き編](./index8.html)
-[8.Web APIを叩いてみよう　実践編](./index9.html)
+[7.データ構造について](./index8.html)
+[8.Web APIを叩いてみよう](./index9.html)
 [9.HTMLと組み合わせて使ってみよう](./index10.html)

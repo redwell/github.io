@@ -12,6 +12,12 @@
 - JSONについて
 
 
+分割せずにまとめて理解してもらいたい内容だったので、
+この章は少し長くなっています。
+
+すみませんがお付き合い下さい。
+
+
 
 ### APIとは
 まずAPIとは何かを考えてみます。
@@ -114,7 +120,7 @@ console.log(hairetsu[2]);
 ```
 let hairetsu = ["1つ目のデータ","2つ目のデータ","3つ目のデータ","4つ目のデータ"];
 for(let i = 0; i < hairetsu.length; i++){
-  console.log(hairetsu[i]);
+  console.log(hairetsu[i] + "だよ");
 }
 ```
 <img src="./img/api1-03.png" width="50%"/>
@@ -203,8 +209,8 @@ let sample_data = {
    "age": 30
 };
 
-console.log(sample_data.name);
-console.log(sample_data.age);
+console.log("名前は" + sample_data.name + "です");
+console.log("年齢は" + sample_data.age + "ですね");
 ```
 <img src="./img/api1-04.png" width="50%"/>
 
@@ -224,6 +230,49 @@ console.log(sample_data.age);
 
 
 JSONの便利さが少しイメージできたでしょうか？
+
+
+### JSONをネストする
+ネストとは入れ子構造のことです。
+マトリョーシカのように、あるものの中に同じ構造のものが入っていることをネスト（入れ子）と言います。
+
+ここではJSONの中にJSONを入れることを指しています。
+
+ネストされたJSONのデータ構造の例は以下のようになります。
+
+```
+{
+  "service_name": "streaming_music",
+  "paln": "free",
+  "user":{
+    "name": "Tom",
+    "age": "30",
+    "favorite" : "rock"
+  }
+}
+```
+
+userというキーに対応する値にJSONが入っているのが分かると思います。
+
+ではこのデータ構造を元にTomの好きな音楽ジャンルを取得してみましょう。
+
+
+```
+let data = {
+  "service_name": "streaming_music",
+  "paln": "free",
+  "user":{
+    "name": "Tom",
+    "age": "30",
+    "favorite" : "rock"
+  }
+};
+
+console.log(data.user.name);
+```
+<img src="./img/api1-05.png" width="50%"/>
+
+このようにネストされている場合でも「.（ドット）」でキーを繋いでいけば値を取得可能となっています。
 
 
 
@@ -247,11 +296,64 @@ JSONの便利さが少しイメージできたでしょうか？
 
 ```
 
+ポイントはJSONの値に配列が入っているところです。
+
+ではこのJSONデータをdataという名前の変数に格納して、データの取得にチャレンジしてみましょう。
+
+まずはTomの名前を取得してみましょう。
+
+自分で考えてみてから下の答えを見てください。
+
+```
+let data = {
+  "service_name": "streaming_music",
+  "plan": "free",
+  "user_list": [
+    {"name":"Tom","age":30,"favorite":["rock"]},
+    {"name":"mary","age":27,"favorite":["rock","jazz"]},
+    {"name":"george","age":50,"favorite":["classic"]}
+  ]
+};
+
+console.log(data.user_list[0].name);
+```
+<img src="./img/api1-06.png" width="50%"/>
+
+うまく取得できましたか？
+
+では続いてmaryの好きなものに入っている「jazz」という文字を取り出してみましょう。
+
+こちらも自分で考えてみてから下の答えを見てくださいね。
+
+```
+console.log(data.user_list[1].favorite[1]);
+```
+<img src="./img/api1-07.png" width="50%"/>
+
+
+うまく取得できたでしょうか？
+
+Web APIを使ってシステム連携を行う際は、このようにJSONと配列を組み合わせてデータを扱っていくことになります。
+
+
+## まとめ
+ここでは基本的なデータ構造を学びました。
+
+予定よりもずいぶんと長くなってしまいましたがなんとか終わりました。
+お疲れさまでした。
+
+Web APIを叩いてデータを取得するだけであればそれほど気にしなくても大丈夫ですが、データ構造は非常に重要です。
+
+なぜならデータ構造によって処理の効率が大きく変わるからです。
+
+Web APIから取得したデータを変数の中に一時保存して処理する場合でも、次の処理が行いやすい形式に変換して保存するなど工夫が必要になったりします。
+
+もしプログラミングのトレーニングを継続してスキルを上げていくのであれば、データ構造も意識してみてください。
 
 
 
 
-[< 関数](./index7.html) | [Web APIを叩いてみよう >](./index9.html)
+[< 関数](./index7.html) | [Web APIを叩いてみよう 実践編>](./index9.html)
 
 
 

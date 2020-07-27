@@ -686,6 +686,9 @@ pre.editor-colors .fold-marker:after {
 <li>配列について</li>
 <li>JSONについて</li>
 </ul>
+<p>分割せずにまとめて理解してもらいたい内容だったので、<br>
+この章は少し長くなっています。</p>
+<p>すみませんがお付き合い下さい。</p>
 <h3>APIとは</h3>
 <p>まずAPIとは何かを考えてみます。</p>
 <p>まずAPIという言葉です。<br>
@@ -754,7 +757,7 @@ CRUDはCreate（作成）/Read（読み込み）/Update（更新）/Delete（削
 <p>サンプルコードは以下の通りです。</p>
 <pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let hairetsu = ["1つ目のデータ","2つ目のデータ","3つ目のデータ","4つ目のデータ"];</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">for(let i = 0; i &lt; hairetsu.length; i++){</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log(hairetsu[i]);</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log(hairetsu[i] + "だよ");</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
 <img src="img\api1-03.png" width="50%">
 <p>このように配列はfor文など他の文法と組合わせて使うことで強い力を発揮することができます。</p>
@@ -803,8 +806,8 @@ CRUDはCreate（作成）/Read（読み込み）/Update（更新）/Delete（削
 <span><span class="syntax--text syntax--plain"><span class="leading-whitespace">   </span><span class="syntax--meta syntax--paragraph syntax--text">"age": 30</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">};</span></span></span>
 <span></span> 
-<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log(sample_data.name);</span></span></span>
-<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log(sample_data.age);</span></span></span></pre>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log("名前は" + sample_data.name + "です");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log("年齢は" + sample_data.age + "ですね");</span></span></span></pre>
 <img src="img\api1-04.png" width="50%">
 <p>まず最初に変数sample_dataにJSONデータを格納しています。</p>
 <p>その後にconsole.log()でコンソール画面にJSONに格納したデータを表示しています。<br>
@@ -818,6 +821,35 @@ CRUDはCreate（作成）/Read（読み込み）/Update（更新）/Delete（削
 <li>2と3の範囲で文字を抜き出すと名前が取得できる</li>
 </ol>
 <p>JSONの便利さが少しイメージできたでしょうか？</p>
+<h3>JSONをネストする</h3>
+<p>ネストとは入れ子構造のことです。<br>
+マトリョーシカのように、あるものの中に同じ構造のものが入っていることをネスト（入れ子）と言います。</p>
+<p>ここではJSONの中にJSONを入れることを指しています。</p>
+<p>ネストされたJSONのデータ構造の例は以下のようになります。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">"service_name": "streaming_music",</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">  </span>"paln": "free",</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">  </span>"user":{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">"name": "Tom",</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">    </span>"age": "30",</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">    </span>"favorite" : "rock"</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<p>userというキーに対応する値にJSONが入っているのが分かると思います。</p>
+<p>ではこのデータ構造を元にTomの好きな音楽ジャンルを取得してみましょう。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let data = {</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">"service_name": "streaming_music",</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">  </span>"paln": "free",</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">  </span>"user":{</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">"name": "Tom",</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">    </span>"age": "30",</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">    </span>"favorite" : "rock"</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">};</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log(data.user.name);</span></span></span></pre>
+<img src="img\api1-05.png" width="50%">
+<p>このようにネストされている場合でも「.（ドット）」でキーを繋いでいけば値を取得可能となっています。</p>
 <h4>複雑なJSONの例</h4>
 <p>実際にWeb APIを扱う場合は、もう少し複雑なJSONを扱います。</p>
 <p>こちらも具体的な例を見ておきましょう。</p>
@@ -832,7 +864,38 @@ CRUDはCreate（作成）/Read（読み込み）/Update（更新）/Delete（削
 <span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">]</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span>
 <span></span> </pre>
-<p><a href="./index7.html">&lt; 関数</a> | <a href="./index9.html">Web APIを叩いてみよう &gt;</a></p>
+<p>ポイントはJSONの値に配列が入っているところです。</p>
+<p>ではこのJSONデータをdataという名前の変数に格納して、データの取得にチャレンジしてみましょう。</p>
+<p>まずはTomの名前を取得してみましょう。</p>
+<p>自分で考えてみてから下の答えを見てください。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let data = {</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">"service_name": "streaming_music",</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">  </span>"plan": "free",</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">  </span>"user_list": [</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">{"name":"Tom","age":30,"favorite":["rock"]},</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">    </span>{"name":"mary","age":27,"favorite":["rock","jazz"]},</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">    </span>{"name":"george","age":50,"favorite":["classic"]}</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">]</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">};</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log(data.user_list[0].name);</span></span></span></pre>
+<img src="img\api1-06.png" width="50%">
+<p>うまく取得できましたか？</p>
+<p>では続いてmaryの好きなものに入っている「jazz」という文字を取り出してみましょう。</p>
+<p>こちらも自分で考えてみてから下の答えを見てくださいね。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log(data.user_list[1].favorite[1]);</span></span></span></pre>
+<img src="img\api1-07.png" width="50%">
+<p>うまく取得できたでしょうか？</p>
+<p>Web APIを使ってシステム連携を行う際は、このようにJSONと配列を組み合わせてデータを扱っていくことになります。</p>
+<h2>まとめ</h2>
+<p>ここでは基本的なデータ構造を学びました。</p>
+<p>予定よりもずいぶんと長くなってしまいましたがなんとか終わりました。<br>
+お疲れさまでした。</p>
+<p>Web APIを叩いてデータを取得するだけであればそれほど気にしなくても大丈夫ですが、データ構造は非常に重要です。</p>
+<p>なぜならデータ構造によって処理の効率が大きく変わるからです。</p>
+<p>Web APIから取得したデータを変数の中に一時保存して処理する場合でも、次の処理が行いやすい形式に変換して保存するなど工夫が必要になったりします。</p>
+<p>もしプログラミングのトレーニングを継続してスキルを上げていくのであれば、データ構造も意識してみてください。</p>
+<p><a href="./index7.html">&lt; 関数</a> | <a href="./index9.html">Web APIを叩いてみよう 実践編&gt;</a></p>
 <p><a href="./index.html">0.JavaScriptについて</a><br>
 <a href="./index2.html">1.ブラウザのConsole画面の使い方</a><br>
 <a href="./index3.html">2.変数の基本</a><br>

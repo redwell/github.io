@@ -761,6 +761,20 @@ goukeiについては計算を行った時点での結果が入っているか�
 <pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">goukei = eigyo1g + eigyo2g;</span></span></span>
 <span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log(goukei);</span></span></span></pre>
 <img src="img\var07.png" width="50%">
+<h3>変数に格納されたデータを処理して、同じ変数に入れ直す</h3>
+<p>変数に格納されたデータを処理して、その結果を同じ変数に入れ直すこともできます。</p>
+<p>まずは数値の場合を見てみましょう。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let data1 = 12345;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log(data1);</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">data1 = data1 + 12345;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log(data1);</span></span></span></pre>
+<img src="img\var08.png" width="50%">
+<p>続いて文字列の場合です。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let data2 = "私は";</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log(data2);</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">data2 = data2 + "グリーンラベルが好き！";</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">console.log(data2);</span></span></span></pre>
+<img src="img\var09.png" width="50%">
 <h3>まとめ</h3>
 <ul>
 <li>「let 変数名」で変数を作る</li>

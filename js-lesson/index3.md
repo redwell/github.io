@@ -134,6 +134,33 @@ console.log(goukei);
 <img src="./img/var07.png" width="50%"/>
 
 
+### 変数に格納されたデータを処理して、同じ変数に入れ直す
+変数に格納されたデータを処理して、その結果を同じ変数に入れ直すこともできます。
+
+まずは数値の場合を見てみましょう。
+
+```
+let data1 = 12345;
+console.log(data1);
+data1 = data1 + 12345;
+console.log(data1);
+```
+
+<img src="./img/var08.png" width="50%"/>
+
+
+
+続いて文字列の場合です。
+
+```
+let data2 = "私は";
+console.log(data2);
+data2 = data2 + "グリーンラベルが好き！";
+console.log(data2);
+```
+
+<img src="./img/var09.png" width="50%"/>
+
 
 ### まとめ
 - 「let 変数名」で変数を作る

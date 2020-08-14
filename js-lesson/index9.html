@@ -718,6 +718,15 @@ CRUDはCreate（作成）/Read（読み込み）/Update（更新）/Delete（削
 <li>DELETE - Delete</li>
 </ul>
 <p>HTTPメソッドやCRUDについて詳しく知りたい人はググって見てください。</p>
+<p>今回はGETを使ったサンプルのみを扱います。</p>
+<h4>HTTPでGETメソッドを扱う場合の基本的な流れ</h4>
+<p>HTTP通信は以下の流れで進みます。</p>
+<ol>
+<li>HTTPのリクエスト用のデータを作る</li>
+<li>HTTPリクエストを送信する</li>
+<li>HTTPレスポンスが返ってきたら、それを受け取って処理する</li>
+</ol>
+<p>この3つについてJavaScriptでコードを書いていくことになります。</p>
 <h3>今回利用するWeb APIについて</h3>
 <p>今回はJSON Placeholderというサイトを利用します。</p>
 <p><a href="https://jsonplaceholder.typicode.com/">JSON Placeholder</a></p>
@@ -727,14 +736,104 @@ CRUDはCreate（作成）/Read（読み込み）/Update（更新）/Delete（削
 <p>それらは今回のテーマから大きく逸脱してしまうので、今回は無料で使えるJSON Placeholderを使うことにしました。</p>
 <h3>データ構造を確認しておこう</h3>
 <p>まずはブラウザでアクセスして、どんなJSONデータが返ってくるのかを確認しておきましょう。</p>
-<p><a href="https://jsonplaceholder.typicode.com/users">ダミーのユーザーデータ</a></p>
+<p>次のリンクをブラウザで開いてください。<br>
+<a href="https://jsonplaceholder.typicode.com/users">ダミーのユーザーデータ</a></p>
 <p>今回のデータは全体が配列になっていて、中に複数のJSONが格納されています。</p>
 <p>構造としては以下のような形です。</p>
 <pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">[{1つ目のJSON},{2つ目のJSON},{3つ目のJSON},...]</span></span></span></pre>
 <p>一応キャプチャも貼っておきます。</p>
 <img src="img\api2-01.png" width="50%">
 <h3>JavaScriptでWeb APIを叩いてデータを取得しよう</h3>
+<p>それではこのWeb APIをJavaScriptで叩いてJSONデータを取得してみましょう。</p>
+<p>Web APIを叩くためにはJavaScriptでHTTP通信をおこなう必要があります。</p>
+<p>JavaScriptでのHTTP通信については最近ではfetchという機能を使うことが多いですが、今回は処理の流れを理解しやすいXMLHttpRequestという機能で説明をしていこうと思います。</p>
+<h4>まずは受け取ったJSONをそのまま表示</h4>
+<p>まずは受け取ったJSONをそのままコンソール画面に表示します。</p>
+<p>流れを意識してコードを読んでください。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//1の説明を参照</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let xhr = new XMLHttpRequest();</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//2の説明を参照</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">xhr.responseType = 'json';</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//3の説明を参照</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">xhr.open("GET","<span class="syntax--markup syntax--underline syntax--link syntax--https syntax--hyperlink">https://jsonplaceholder.typicode.com/users</span>");</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//4の説明を参照</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">xhr.send();</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//5の説明を参照</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">xhr.onload = function(){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log(xhr.response);</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span>
+<span></span> </pre>
+<img src="img\api2-02.png" width="50%">
+<ol>
+<li>
+<p>XMLHttpRequestという機能を呼び出してxhrという名前で扱えるようにしています。</p>
+</li>
+<li>
+<p>利用するWeb APIに合わせてHTTPレスポンスで返ってくるデータのフォーマットを設定しています。</p>
+</li>
+<li>
+<p>xhrという名前で扱えるようにしたXMLHttpRequestに対して、GETメソッドを使ってURLを開くという設定を行います。</p>
+</li>
+<li>
+<p>xhrという名前で扱えるようにしたXMLHttpRequestでリクエストを送信します。</p>
+</li>
+<li>
+<p>HTTPレスポンスを受け取った後に行う処理を各部分です。ここではxhr.responseという名前で格納されているので、それをそのままコンソール画面に表示しています。</p>
+</li>
+</ol>
+<h4>配列の1つ目に入っているJSONだけを抜き出して表示する</h4>
+<p>APIを叩いてJSONデータを受け取るまでの流れは同じで、受け取った後の処理だけを変えてみます。</p>
+<p>受け取ったデータは配列に格納されているので、1つ目だけをコンソール画面に表示してみます。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//1の説明を参照</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let xhr = new XMLHttpRequest();</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//2の説明を参照</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">xhr.responseType = 'json';</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//3の説明を参照</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">xhr.open("GET","<span class="syntax--markup syntax--underline syntax--link syntax--https syntax--hyperlink">https://jsonplaceholder.typicode.com/users</span>");</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//4の説明を参照</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">xhr.send();</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//5の説明を参照</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">xhr.onload = function(){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log(xhr.response[0]);</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<img src="img\api2-03.png" width="50%">
+<h4>配列の3つ目に入っているJSONのnameとemailだけを抜き出して表示する</h4>
+<p>前の章でJSONの扱いをしっかり学んでいるので、これも簡単ですね。</p>
+<p>1つ前のサンプルと同じくAPIを叩いてJSONデータを受け取るまでの流れは変わりません。</p>
+<p>受け取ったデータから必要なデータだけをうまく抜き出して表示してみましょう。</p>
+<h4>配列の1つ目に入っているJSONだけを抜き出して表示する</h4>
+<p>APIを叩いてJSONデータを受け取るまでの流れは同じで、受け取った後の処理だけを変えてみます。</p>
+<p>受け取ったデータは配列に格納されているので、1つ目だけをコンソール画面に表示してみます。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//1の説明を参照</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">let xhr = new XMLHttpRequest();</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//2の説明を参照</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">xhr.responseType = 'json';</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//3の説明を参照</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">xhr.open("GET","<span class="syntax--markup syntax--underline syntax--link syntax--https syntax--hyperlink">https://jsonplaceholder.typicode.com/users</span>");</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//4の説明を参照</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">xhr.send();</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">//5の説明を参照</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">xhr.onload = function(){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">console.log("名前は" + xhr.response[2].name);</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">  </span>console.log("メアドは" + xhr.response[2].email);</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span></pre>
+<img src="img\api2-04.png" width="50%">
 <h2>まとめ</h2>
+<p>web APIを叩いてデータを受け取り、必要なデータにアクセスする方法について理解できたでしょうか？</p>
+<p>次が最後の章です。</p>
+<p>受け取ったデータから必要な項目を抜き出して、HTMLで表示するまでをやってみます。</p>
 <p><a href="./index8.html">&lt; データ構造について</a> | <a href="./index10.html">HTMLと組み合わせて使ってみよう &gt;</a></p>
 <p><a href="./index.html">0.JavaScriptについて</a><br>
 <a href="./index2.html">1.ブラウザのConsole画面の使い方</a><br>

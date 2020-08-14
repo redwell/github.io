@@ -676,9 +676,190 @@ pre.editor-colors .fold-marker:after {
   </head>
   <body>
     <h2>HTMLと組み合わせて使ってみよう</h2>
-<h3>これから書く</h3>
+<p>ついに最後の章です。</p>
+<p>受け取ったデータをJavaScriptで処理してHTMLを書き換えます。</p>
+<h3>まずはHTMLの書き換えを練習してみよう</h3>
+<p>なるべくシンプルなサンプルでHTMLの書き換えを行ってみます。</p>
+<p>メモ帳を開いて以下のHTMLを打ち込んでみてください。<br>
+ファイル名は「“sample.html”」という形でダブルクオーテーションで囲って保存してください。</p>
+<p>※ダブルクオーテーションで囲むと勝手に「.txt」といった拡張子が付けられてしまうことを防げます。</p>
+<img src="img\html-01.png" width="50%">
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;!DOCTYPE html&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;html lang="ja"&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;head&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">&lt;meta charset="utf-8"&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">  </span>&lt;title&gt;HTMLの書き換えを体験しよう&lt;/title&gt;</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">&lt;script&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">document.addEventListener("DOMContentLoaded",function(){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">      </span><span class="syntax--meta syntax--paragraph syntax--text">document.querySelector("#sample_button").addEventListener("click",function(){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">        </span><span class="syntax--meta syntax--paragraph syntax--text">document.querySelector("#result").innerHTML = "書き換えたよ！";</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">      </span><span class="syntax--meta syntax--paragraph syntax--text">})<span class="trailing-whitespace">      </span></span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">})</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">&lt;/script&gt;</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;/head&gt;</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;body&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;button id="sample_button"&gt;書き換え実行！&lt;/button&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;div id="result"&gt;書き換え前&lt;/div&gt;</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;/body&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;/html&gt;</span></span></span></pre>
+<p>保存できたらブラウザで開いて動作を確認してみてください。<br>
+<img src="img\html-02.png" width="50%"></p>
+<h4>処理の内容を理解する</h4>
+<p>さて、とりあえずHTMLの書き換えについて動きを見ることができました。</p>
+<p>次は処理の内容を理解しましょう。</p>
+<p>ここのでポイントは「addEventListener」という部分です。</p>
+<p>具体的な動きを元にざっくり説明をしてみます。</p>
+<p>「addEventListener」の書式は以下のような形になります。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">アクションを埋め込む対象.addEventListener("イベント名",function(){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">処理の内容</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">})</span></span></span></pre>
+<p>これを無理やり日本語に翻訳すると以下のような感じになります。</p>
+<ul>
+<li>アクションを埋め込む対象で</li>
+<li>イベント名に設定したイベントが起きたら</li>
+<li>処理の内容を実行する</li>
+</ul>
+<p>上記を元に読み解いてみましょう。</p>
+<h4>document.querySelector("#sample_button").addEventListenerの部分について</h4>
+<p>説明の順番として分かりやすくなるという理由で、<br>
+document.querySelector("#sample_button").addEventListenerの部分から見ていきます。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">document.querySelector("#sample_button").addEventListener("click",function(){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">document.querySelector("#result").innerHTML = "書き換えたよ！";</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">})</span></span></span></pre>
+<p>documentは何かというと、ブラウザで表示したWebページ全体のことだと思ってください。</p>
+<p>次にquerySelector()はHTMLの中に埋め込まれたidやclassという情報を読み込むための機能です。<br>
+()の中にCSSセレクタという書式でidやclassの名前を入れることで情報にアクセスできます。<br>
+idの場合は「#id名」、classの場合は「.class名」と入力します。</p>
+<p>HTMLを読んでもらうとbuttonタグに「sample_button」というidがついているのが分かると思います。<br>
+従ってここではquerySelector("#sample_button")と指定することで、このボタンを指定しています。</p>
+<p>イベント名には「click」が設定されています。</p>
+<p>従ってここまでの範囲を日本語にすると以下の内容になります。</p>
+<ul>
+<li>ブラウザで読み込んだWebページの中のsample_buttonというidが付けられた部分で</li>
+<li>クリックが行われたら</li>
+<li>処理の内容を実行してください</li>
+</ul>
+<p>続いて処理の中身です。</p>
+<p>処理の中身にもdocument.querySelector()が使われていますね。</p>
+<p>ここでは「result」というidが指定されています。</p>
+<p>そのあとにinnerHTMLというのがついています。<br>
+これは「&lt;タグ名&gt;文字列&lt;/タグ名&gt;」の文字列部分を表しています。</p>
+<p>そこに「=」をつけて新しい値として「“書き換えたよ！”」という文字列を入れています。</p>
+<p>日本語にすると以下です。</p>
+<ul>
+<li>ブラウザで読み込んだWebページの中のresultというidが付けられた部分で</li>
+<li>タグの中に入っている文字列を</li>
+<li>"書き換えたよ！"にする</li>
+</ul>
+<p>2つの説明を繋げると以下となります。</p>
+<ul>
+<li>
+<ul>
+<li>ブラウザで読み込んだWebページの中のsample_buttonというidが付けられた部分で</li>
+</ul>
+</li>
+<li>クリックが行われたら</li>
+<li>ブラウザで読み込んだWebページの中のresultというidが付けられた部分で</li>
+<li>タグの中に入っている文字列を</li>
+<li>"書き換えたよ！"にする</li>
+</ul>
+<h4>document.addEventListenerの部分について</h4>
+<p>すでに実現したい内容がプログラム書かれているので、この部分は何のためにあるんだろう？と疑問に思ったかもしれません。</p>
+<p>それを理解するためにまずはdocument.addEventListenerの部分を抜きにしたHTMLを開いてみましょう。</p>
+<p>ファイル名は「“sample2.html”」にして、UTF-8で保存してください。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;!DOCTYPE html&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;html lang="ja"&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;head&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">&lt;meta charset="utf-8"&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">  </span>&lt;title&gt;HTMLの書き換えを体験しよう&lt;/title&gt;</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">&lt;script&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">document.querySelector("#sample_button").addEventListener("click",function(){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">      </span><span class="syntax--meta syntax--paragraph syntax--text">document.querySelector("#result").innerHTML = "書き換えたよ！";</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">})<span class="trailing-whitespace">      </span></span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">&lt;/script&gt;</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;/head&gt;</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;body&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;button id="sample_button"&gt;書き換え実行！&lt;/button&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;div id="result"&gt;書き換え前&lt;/div&gt;</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;/body&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;/html&gt;</span></span></span></pre>
+<p>保存で来たらブラウザで開いてF12を押してみてください。<br>
+コンソール画面に8行目でエラーが表示されていると思います。</p>
+<img src="img\html-03.png" width="50%">
+<p>なぜこれが起きるのかを理解するには順次処理を思い出してもらう必要があります。</p>
+<p>順次処理の章でJavaScriptは基本的にはプログラムが書かれた順番に上から実行されるというお話をしました。</p>
+<p>これはJavaScriptだけでなく他のプログラムやHTMLでも同じです。</p>
+<p>このサンプルではHTMLのbuttonタグは16行目に書かれています。</p>
+<p>従って8行目で「document.querySelector(#sample_button)」が実行された時点では、「#sample_button」が設定されたボタンはまだ生成されていないのです。</p>
+<p>存在しないボタンに対してクリックした時の動作を設定しようとしたため、エラーが起きてしまったということになります。</p>
+<p>この現象を回避するために使っているのが「document.addEventListener」の部分になります。</p>
+<p>それではコードの内容を見てみましょう。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">document.addEventListener("DOMContentLoaded",function(){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">処理内容</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">})</span></span></span></pre>
+<p>さきほども書いたようにdocumentはブラウザで読み込んだWebページそのものです。</p>
+<p>イベント名に設定されている「DOMContentLoaded」はざっくりいうとHTM<br>
+Lの読み込みが終わったらという感じです。<br>
+※厳密に知りたい方は「DOM」で検索してみてください。</p>
+<p>従って日本語にすると以下のようになります。</p>
+<ul>
+<li>ブラウザで読み込んだWebページのHTMLが読み込み終わったら</li>
+<li>document.querySelector("#sample_button").addEventListener()の処理を開始する</li>
+</ul>
+<p>このように「DOMContentLoaded」を設定しておくことで、HTMLの読み込みが終わるまでJavaScriptの実行をストップさせておいてエラーを回避しているのです。</p>
+<h3>Web APIで取得したデータを使ってHTMLを書き換えてみよう</h3>
+<p>これでやっと必要な知識が揃いました。</p>
+<p>Web APIで取得したデータを使ってHTMLを書き換えるところまでやってみましょう！</p>
+<p>配列のforループなど今までに学んだことを盛り込んでコードを書いてみます！</p>
+<p>ファイル名は「“sample3.html”」とします。</p>
+<pre class="editor-colors lang-text"><span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;!DOCTYPE html&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;html lang="ja"&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;head&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">&lt;meta charset="utf-8"&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">  </span>&lt;title&gt;HTMLの書き換えを体験しよう&lt;/title&gt;</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">&lt;script&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">document.addEventListener("DOMContentLoaded",function(){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">      </span><span class="syntax--meta syntax--paragraph syntax--text">document.querySelector("#sample_button").addEventListener("click",function(){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">        </span><span class="syntax--meta syntax--paragraph syntax--text">let tmp = ""; //処理結果を一時保存する変数</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">        </span><span class="syntax--meta syntax--paragraph syntax--text">let xhr = new XMLHttpRequest();<span class="trailing-whitespace">        </span></span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">        </span>xhr.responseType = 'json';</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">        </span>xhr.open("GET","<span class="syntax--markup syntax--underline syntax--link syntax--https syntax--hyperlink">https://jsonplaceholder.typicode.com/users</span>");</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">        </span>xhr.send();</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">        </span>xhr.onload = function(){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">          </span><span class="syntax--meta syntax--paragraph syntax--text">for(let i=0;i&lt;xhr.response.length;i++){</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">            </span><span class="syntax--meta syntax--paragraph syntax--text">tmp = tmp + (i + 1) + "人目の名前は" + xhr.response[i].name + "です。" + "&lt;br /&gt;";</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">          </span><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span class="leading-whitespace">          </span>document.querySelector("#result").innerHTML = tmp;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">        </span><span class="syntax--meta syntax--paragraph syntax--text">}</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">      </span><span class="syntax--meta syntax--paragraph syntax--text">})<span class="trailing-whitespace">      </span></span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">    </span><span class="syntax--meta syntax--paragraph syntax--text">})</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="leading-whitespace">  </span><span class="syntax--meta syntax--paragraph syntax--text">&lt;/script&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;/head&gt;</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;body&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;button id="sample_button"&gt;Web APIを叩く！&lt;/button&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;div id="result"&gt;ここに処理結果が表示されるよ&lt;/div&gt;</span></span></span>
+<span></span> 
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;/body&gt;</span></span></span>
+<span><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text">&lt;/html&gt;</span></span></span></pre>
+<p>すべて説明してきた範囲なので、ここまでやってきた皆さんなら読み解けたはずです！</p>
 <h2>まとめ</h2>
-<p><a href="./index8.html">&lt; Web APIを叩いてみよう</a></p>
+<p>お疲れさまでした！<br>
+Web APIを叩くという処理の雰囲気が少しは掴めたでしょうか？</p>
+<p>今回はWeb APIから取得したデータをそのまま表示しましたが、あるWeb APIから受取ったデータから必要な情報を抜き出して別のWeb APIに渡すことでより複雑な処理を作ることも可能です。</p>
+<p>もちろんそうしたものを作るためには追加で学ぶ必要のある知識がたくさんありますが、みなさんはもうそのスタートラインに立てています！</p>
+<p>ぜひトライしてみてください！</p>
+<p><a href="./index9.html">&lt; Web APIを叩いてみよう</a></p>
 <p><a href="./index.html">0.JavaScriptについて</a><br>
 <a href="./index2.html">1.ブラウザのConsole画面の使い方</a><br>
 <a href="./index3.html">2.変数の基本</a><br>

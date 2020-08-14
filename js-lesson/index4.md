@@ -66,6 +66,7 @@ console.log()の結果を見ると、追加したコードによってeigyo2gの
 
 [< 変数の基本](./index3.html) | [分岐処理 >](./index5.html)
 
+<hr>
 
 [0.JavaScriptについて](./index.html)
 [1.ブラウザのConsole画面の使い方](./index2.html)

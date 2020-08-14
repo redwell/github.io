@@ -175,6 +175,7 @@ console.log("私は永遠の" + 18 + "歳です。");
 
 [< JavaScriptについて](./index.html) | [変数の基本 >](./index3.html)
 
+<hr>
 
 [0.JavaScriptについて](./index.html)
 [1.ブラウザのConsole画面の使い方](./index2.html)

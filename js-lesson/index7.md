@@ -242,6 +242,7 @@ console.log("一辺が" + side + "の正方形の面積は" + answer + "です�
 
 [< 反復処理](./index6.html) | [データ構造について >](./index8.html)
 
+<hr>
 
 [0.JavaScriptについて](./index.html)
 [1.ブラウザのConsole画面の使い方](./index2.html)

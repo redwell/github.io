@@ -288,7 +288,7 @@ Web APIから取得したデータを変数の中に一時保存して処理す�
 
 [< 関数](./index7.html) | [Web APIを叩いてみよう 実践編>](./index9.html)
 
-
+<hr>
 
 [0.JavaScriptについて](./index.html)
 [1.ブラウザのConsole画面の使い方](./index2.html)

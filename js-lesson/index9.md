@@ -222,6 +222,7 @@ web APIを叩いてデータを受け取り、必要なデータにアクセス�
 
 [< データ構造について](./index8.html) | [HTMLと組み合わせて使ってみよう >](./index10.html)
 
+<hr>
 
 [0.JavaScriptについて](./index.html)
 [1.ブラウザのConsole画面の使い方](./index2.html)

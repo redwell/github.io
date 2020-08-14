@@ -168,6 +168,7 @@ for(let i=0;i<10000;i++){
 
 [< 分岐処理](./index5.html) | [関数 >](./index7.html)
 
+<hr>
 
 [0.JavaScriptについて](./index.html)
 [1.ブラウザのConsole画面の使い方](./index2.html)

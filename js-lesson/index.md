@@ -102,7 +102,10 @@ HTML/CSS/JavaScriptは、それぞれ異なる役割を持っています。
 ### まとめ
 まずはJavaScriptそのものの話と、プログラミングについての基本的な考え方について学びました。
 
-この後は以下のような流れで説明する予定です。
+[ブラウザのConsole画面の使い方 >](./index2.html)
+
+
+<hr>
 
 [0.JavaScriptについて](./index.html)
 [1.ブラウザのConsole画面の使い方](./index2.html)
@@ -114,5 +117,3 @@ HTML/CSS/JavaScriptは、それぞれ異なる役割を持っています。
 [7.データ構造について](./index8.html)
 [8.Web APIを叩いてみよう](./index9.html)
 [9.HTMLと組み合わせて使ってみよう](./index10.html)
-
-[ブラウザのConsole画面の使い方 >](./index2.html)

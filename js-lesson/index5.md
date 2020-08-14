@@ -345,6 +345,7 @@ if文で条件によって処理を変えることができます。
 
 [< 順次処理](./index4.html) | [反復処理 >](./index6.html)
 
+<hr>
 
 [0.JavaScriptについて](./index.html)
 [1.ブラウザのConsole画面の使い方](./index2.html)

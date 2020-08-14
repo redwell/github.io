@@ -183,6 +183,7 @@ JavaScriptは動的型付け言語と言って、変数の扱いは良くも悪�
 
 [< ブラウザのConsole画面の使い方](./index2.html) | [順次処理 >](./index4.html)
 
+<hr>
 
 [0.JavaScriptについて](./index.html)
 [1.ブラウザのConsole画面の使い方](./index2.html)
